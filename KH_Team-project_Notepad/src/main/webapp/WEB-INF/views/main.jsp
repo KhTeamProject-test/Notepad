@@ -6,113 +6,129 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Todo List</title>
-	
-	<%-- css 파일 연결 (webapp 폴더 기준으로 경로 작성) --%>
-	<link rel="stylesheet" href="/resources/css/main.css">
+    <meta charset="UTF-8">
+    <title>Notepad</title>
+    
+    <link rel="stylesheet" href="/resources/css/main.css">
 </head>
 <body>
-	
-	<c:if test="${empty sessionScope.loginMember}">
-		<form action="/login" method="post">
-			아이디 : <input type="text" name="userId"> <br>
-			비밀번호 : <input type="password" name="userPw"> <br>
-			<button>로그인</button>
-		</form>
-	</c:if>
-	
-	<c:if test="${not empty sessionScope.loginMember}">
-		<p>${sessionScope.loginMember} 환영합니다!</p>
-	</c:if>
-	
-	<button type="button" id="logout">로그아웃</button>
-	
-	
+    
+    <c:if test="${empty sessionScope.loginMember}">
+        <form action="/login" method="post">
+            아이디 : <input type="text" name="userId"> <br>
+            비밀번호 : <input type="password" name="userPw"> <br>
+            <button>로그인</button>
+            <a href="/signup">회원가입</a>
+        </form>
+    </c:if>
+    
+    <c:if test="${not empty sessionScope.loginMember}">
+        <p>${sessionScope.loginMember.memberName} 환영합니다!</p>
+        <button type="button" id="logout">로그아웃</button>
+    </c:if>
+    
+    <h1>Notepad</h1>
+    
+    <div class="topic-filter">
+        <button type="button" data-topic="all" class="active">전체</button>
+        <button type="button" data-topic="0">공지</button>
+        <button type="button" data-topic="1">개인</button>
+        <button type="button" data-topic="2">업무</button>
+    </div>
+    
+    <h3>전체 메모 개수: ${fn:length(postList)}개 / 
+        체크된 메모 개수: ${checkedCount}개</h3>
 
-	<h1>Todo List</h1>
-	
-	<h3>전체 Todo 개수 : ${fn:length(todoList)}개 / 
-		완료된 Todo 개수 : ${completeCount}개</h3>
-
-	<hr>
-	
-	<h4>할 일 추가</h4>
-	<form action="/todo/add" method="post" id="addForm">
-		<div>
-			제목 : <input type="text" name="title">
-		</div>
-		<div>
-			<textarea rows="3" cols="50" name="detail"
-			placeholder="상세 내용 입력..."></textarea>
-		</div>
-	
-		<button>추가하기</button>
-	</form>
-	
-	
-	<hr>
-	
-	<%-- 할 일 목록 출력 --%>
-	<table id="todoList" border="1">
-		<thead>
-			<tr>
-				<th>출력 번호</th><%-- 페이지에서 보이는 용도의 단순 출력 번호 --%>
-				<th>todo 번호</th><%-- 실제 DB에 저장된 todoNo 고유 번호 --%>
-				<th>할 일 제목</th>
-				<th>완료 여부</th>
-				<th>등록 날짜</th>
-			</tr>
-		</thead>
-		
-		<tbody>
-			<c:forEach items="${todoList}" var="todo" varStatus="vs">
-				<tr>
-					<th>${vs.count}</th> <%-- 단순 출력 번호 --%>
-					<th>${todo.todoNo}</th>
-					<td>
-						<%-- 제목 클릭 시
-							todoNo(고유 todo번호)를 데이터로 전송(제출)하여
-							서버에서 상세내용 조회시 todoNo를 이용하게끔 함
-						 --%>
-						<a href="/todo/detail?todoNo=${todo.todoNo}">${todo.todoTitle}</a>
-					</td>
-					
-					<th>
-						<c:if test="${todo.todoComplete}">O</c:if> 
-						<%-- todo의 todoComplete가 true라면 O 출력 --%>
-						
-						<c:if test="${not todo.todoComplete}">X</c:if> 
-						<%-- todo의 todoComplete가 true가 아니라면 X 출력 --%>
-					</th>
-					
-					<td>${todo.regDate}</td>
-				</tr>
-			
-			
-			</c:forEach>
-			
-		
-		</tbody>
-	</table>
-	
-	
-	<%-- session 범위에 message가 있을 경우 --%>
-	<c:if test="${not empty sessionScope.message}">
-		<script>
-			// JS 영역
-			alert("${message}");
-			// JSP 해석 순위
-			// 1순위 : Java(EL/JSTL)
-			// 2순위 : Front(HTML/CSS/JS)
-		</script>
-		
-		<%-- message를 한 번만 출력하고 제거 --%>
-		<c:remove var="message" scope="session" />
-	</c:if>
-	
-	<%-- js 연결 --%>
-	<script src="/resources/js/main.js"></script>
-
+    <hr>
+    
+    <h4>메모 작성</h4>
+    <form action="/post/add" method="post" id="addForm">
+        <div>
+            제목: <input type="text" name="title" required>
+        </div>
+        <div>
+            <textarea rows="5" cols="50" name="content"
+            placeholder="내용을 입력하세요..." required></textarea>
+        </div>
+        <div>
+            주제:
+            <select name="topic">
+                <option value="0">공지</option>
+                <option value="1" selected>개인</option>
+                <option value="2">업무</option>
+            </select>
+        </div>
+        <div>
+            옵션:
+            <select name="option">
+                <option value="0">공개</option>
+                <option value="1">비공개</option>
+                <option value="2">체크리스트</option>
+            </select>
+        </div>
+    
+        <button>등록하기</button>
+    </form>
+    
+    <hr>
+    
+    <table id="postList" border="1">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>주제</th>
+                <th>옵션</th>
+                <th>체크</th>
+                <th>작성자</th>
+                <th>등록일</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <c:forEach items="${postList}" var="post" varStatus="vs">
+                <tr class="post-item" data-topic="${post.postTopic}">
+                    <th>${vs.count}</th>
+                    <td>
+                        <a href="/post/detail?postNo=${post.postNo}">
+                            ${post.postTitle}
+                        </a>
+                    </td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${post.postTopic == 0}">공지</c:when>
+                            <c:when test="${post.postTopic == 1}">개인</c:when>
+                            <c:when test="${post.postTopic == 2}">업무</c:when>
+                        </c:choose>
+                    </td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${post.postOption == 0}">공개</c:when>
+                            <c:when test="${post.postOption == 1}">비공개</c:when>
+                            <c:when test="${post.postOption == 2}">체크리스트</c:when>
+                        </c:choose>
+                    </td>
+                    <td>
+                        <c:if test="${post.postOption == 2}">
+                            <c:if test="${post.postCheck}">✓</c:if>
+                            <c:if test="${not post.postCheck}">□</c:if>
+                        </c:if>
+                    </td>
+                    <td>${post.memberName}</td>
+                    <td>${post.regDate}</td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
+    
+    <c:if test="${not empty sessionScope.message}">
+        <script>
+            alert("${message}");
+        </script>
+        
+        <c:remove var="message" scope="session" />
+    </c:if>
+    
+    <script src="/resources/js/main.js"></script>
 </body>
 </html>
