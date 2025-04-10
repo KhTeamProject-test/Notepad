@@ -50,7 +50,6 @@ public class MemberUpdateServlet extends HttpServlet{
 			 //   session.setAttribute("loginMember", updatedMember);
 			} else {
 			    session.setAttribute("message", "수정 취소");
-			    resp.sendRedirect("/");
 			}
 			resp.sendRedirect("/");
 
