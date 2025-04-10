@@ -72,10 +72,9 @@
 		  
 		    <h3>전체 메모 개수: ${fn:length(postList)}개 / 
 		        체크된 메모 개수: ${checkedCount}개</h3>
-
-			<form action="${pageContext.request.contextPath}/addPost" method="get">
-			    <button type="submit">메모 작성하기</button>
-			</form>
+		        
+		        
+		    <a href="${pageContext.request.contextPath}/addPost/add">메모 작성하기</a>
 
 	    </div>
 	    
