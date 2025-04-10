@@ -38,6 +38,26 @@ public class MainServlet extends HttpServlet {
 			
 			request.setAttribute("privatePostList", privatePostList);
 			
+			// 체크된 게시글 목록 조회
+			List<Post> checkedPostList = service.selectCheckedPostList();
+			
+			request.setAttribute("checkedPostList", checkedPostList);
+			
+			// 첫번째 topic(자유) 목록 조회
+			List<Post> firstTopicPostList = service.selectFirstTopicPostList();
+			
+			request.setAttribute("checkedPostList", checkedPostList);
+			
+			// 두번째 topic(질문) 목록 조회
+			List<Post> secondTopicPostList = service.selectSecondTopicPostList();
+			
+			request.setAttribute("checkedPostList", checkedPostList);
+			
+			// 세번째 topic(취미) 목록 조회
+			List<Post> thirdTopicPostList = service.selectThirdTopicPostList();
+			
+			request.setAttribute("checkedPostList", checkedPostList);
+			
             // 체크된 게시글 개수 조회
             int checkedCount = service.getCheckedCount();
             

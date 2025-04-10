@@ -53,7 +53,6 @@
 	</c:if>
 	
 	
-	
 	<c:if test="${not empty sessionScope.loginMember}">
 		<p> ${session.loginMember}님을 환영합니다</p><br>
 
@@ -67,9 +66,9 @@
 	        <button type="button" data-topic="0">공개</button>
 	        <button type="button" data-topic="1">비공개</button>
 	        <button type="button" data-topic="2">Checked</button>
-	        <button type="button" data-topic="0">자유</button>
-	        <button type="button" data-topic="1">질문</button>
-	        <button type="button" data-topic="2">취미</button>
+	        <button type="button" data-topic="3">자유</button>
+	        <button type="button" data-topic="4">질문</button>
+	        <button type="button" data-topic="5">취미</button>
 		  
 		    <h3>전체 메모 개수: ${fn:length(postList)}개 / 
 		        체크된 메모 개수: ${checkedCount}개</h3>
@@ -79,6 +78,100 @@
 			</form>
 
 	    </div>
+	    
+	    <div class="mainPosts">
+
+		    <!-- 공개 글 리스트 -->
+		    <div class="post-list" data-topic="0">
+		        <c:forEach items="${openPostList}" var="openPost">
+		            <div class="post openPost">
+		                ${openPost.postNo}
+	 		    		${openPost.postTitle}
+	 		    		${openPost.postContent}
+			    		${openPost.postTopic}
+	 		    		${openPost.postOption}
+	 		    		${openPost.memberId}
+			    		${openPost.regDate}
+		            </div>
+		        </c:forEach>
+		    </div>
+		
+		    <!-- 비공개 글 리스트 -->
+		    <div class="post-list" data-topic="1" style="display:none;">
+		        <c:forEach items="${privatePostList}" var="privatePost">
+		            <div class="post privatePost">
+		                ${openPost.postNo}
+	 		    		${openPost.postTitle}
+	 		    		${openPost.postContent}
+			    		${openPost.postTopic}
+	 		    		${openPost.postOption}
+	 		    		${openPost.memberId}
+			    		${openPost.regDate}
+		            </div>
+		        </c:forEach>
+		    </div>
+			
+			<%-- 체크된 글 리스트 --%>
+		    <div class="post-list" data-topic="2" style="display:none;">
+		        <c:forEach items="${checkedPostList}" var="checkedPost">
+		            <div class="post checkedPost">
+		                ${openPost.postNo}
+	 		    		${openPost.postTitle}
+	 		    		${openPost.postContent}
+			    		${openPost.postTopic}
+	 		    		${openPost.postOption}
+	 		    		${openPost.memberId}
+			    		${openPost.regDate}
+		            </div>
+		        </c:forEach>
+		    </div>
+	
+			<%-- 첫번째 토픽 글 리스트 --%>
+		    <div class="post-list" data-topic="3" style="display:none;">
+		        <c:forEach items="${firstTopicPostList}" var="firstTopicPost">
+		            <div class="post firstTopicPost">
+		                ${openPost.postNo}
+	 		    		${openPost.postTitle}
+	 		    		${openPost.postContent}
+			    		${openPost.postTopic}
+	 		    		${openPost.postOption}
+	 		    		${openPost.memberId}
+			    		${openPost.regDate}
+		            </div>
+		        </c:forEach>
+		    </div>
+
+			<%-- 2번째 토픽 글 리스트 --%>
+		    <div class="post-list" data-topic="4" style="display:none;">
+		        <c:forEach items="${secondTopicPostList}" var="secondTopicPost">
+		            <div class="post secondTopicPost">
+		                ${openPost.postNo}
+	 		    		${openPost.postTitle}
+	 		    		${openPost.postContent}
+			    		${openPost.postTopic}
+	 		    		${openPost.postOption}
+	 		    		${openPost.memberId}
+			    		${openPost.regDate}
+		            </div>
+		        </c:forEach>
+		    </div>
+		    
+			<%-- 3번째 토픽 글 리스트 --%>
+		    <div class="post-list" data-topic="5" style="display:none;">
+		        <c:forEach items="${thirdTopicPostList}" var="thirdTopicPost">
+		            <div class="post thirdTopicPost">
+		                ${openPost.postNo}
+	 		    		${openPost.postTitle}
+	 		    		${openPost.postContent}
+			    		${openPost.postTopic}
+	 		    		${openPost.postOption}
+	 		    		${openPost.memberId}
+			    		${openPost.regDate}
+		            </div>
+		        </c:forEach>
+		    </div>
+
+		</div>
         
 	</c:if>
     
@@ -99,6 +192,32 @@
 
 		<c:remove var="message" scope="session" />
 	</c:if>
+	
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".topic-filter button");
+        const postLists = document.querySelectorAll(".post-list");
+
+        buttons.forEach(btn => {
+            btn.addEventListener("click", function () {
+                const topic = this.getAttribute("data-topic");
+
+                // 버튼 활성화 표시
+                buttons.forEach(b => b.classList.remove("active"));
+                this.classList.add("active");
+
+                // 리스트 필터링
+                postLists.forEach(list => {
+                    if (topic === "all") {
+                        list.style.display = "block";
+                    } else {
+                        list.style.display = list.getAttribute("data-topic") === topic ? "block" : "none";
+                    }
+                });
+            });
+        });
+    });
+</script>
     <script src="/resources/js/main.js"></script>
 </body>
 </html>
