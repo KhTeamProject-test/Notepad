@@ -33,6 +33,7 @@ public class LoginServlet extends HttpServlet {
             if(loginMember != null) { // 로그인 성공
                 session.setAttribute("loginMember", loginMember);
                 session.setAttribute("message", "환영합니다!");
+
                 // 메인 페이지로 리다이렉트
                 response.sendRedirect(request.getContextPath());
             } else { // 로그인 실패
