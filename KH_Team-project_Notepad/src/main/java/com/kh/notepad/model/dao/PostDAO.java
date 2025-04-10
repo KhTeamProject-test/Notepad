@@ -169,6 +169,7 @@ public class PostDAO {
             pstmt.setString(2, post.getPostContent());
             pstmt.setInt(3, post.getPostTopic());
             pstmt.setInt(4, post.getPostOption());
+            pstmt.setString(5, post.getMemberId());
 
             result = pstmt.executeUpdate();
             

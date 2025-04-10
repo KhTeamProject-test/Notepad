@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/addPost")
+@WebServlet("/addPost/post")
 public class AddPostServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -40,18 +40,20 @@ public class AddPostServlet extends HttpServlet {
             String content = request.getParameter("content");
             int topic = Integer.parseInt(request.getParameter("topic"));
             int option = Integer.parseInt(request.getParameter("option"));
-
+            String Id = request.getParameter("${sessionScope.loginMember.memberId}");
+            
             Post post = new Post();
             post.setPostTitle(title);
             post.setPostContent(content);
             post.setPostTopic(topic);
             post.setPostOption(option);
+            post.setMemberId(Id);
             PostService service = new PostService();
             boolean result = service.addPost(post);
 
             if (result) {
                 session.setAttribute("message", "게시글이 등록되었습니다.");
-                response.sendRedirect(request.getContextPath() + "/post/list");
+                response.sendRedirect(request.getContextPath() + "/main");
             } else {
                 request.setAttribute("message", "게시글 등록 실패");
                 request.getRequestDispatcher("/WEB-INF/views/addPost.jsp").forward(request, response);
