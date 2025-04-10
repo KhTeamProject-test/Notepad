@@ -16,10 +16,10 @@
     <c:if test="${empty session.loginMember}">
 		
 		<div id="mainLoginBtn">
-	   	 <a href="/loginPage">로그인</a>
+	   	 <a href="${pageContext.request.contextPath}/loginPage">로그인</a>
      	</div>
      	<div id="signUpBtn">
-     		<a href="/signupPage">회원가입</a>
+     		<a href="${pageContext.request.contextPath}/signupPage">회원가입</a>
      	</div>
      	
      	<h1>Notepad</h1>
@@ -57,7 +57,13 @@
 	    </div>
         
 	</c:if>
-    
+    	<c:if test="${not empty sessionScope.message}">
+		<script>
+			alert("${message}");
+		</script>
+
+		<c:remove var="message" scope="session" />
+	</c:if>
     <script src="/resources/js/main.js"></script>
 </body>
 </html>
