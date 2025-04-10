@@ -2,13 +2,14 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
     <!-- 회원 관련 쿼리 -->
-    <entry key="memberSignUp">
-        INSERT INTO TB_MEMBER
-        VALUES(SEQ_MEMBER_NO.NEXTVAL, ?, ?, DEFAULT)
-    </entry>
+		<entry key="memberSignUp">
+		    INSERT INTO TB_MEMBER (MEMBER_ID, MEMBER_PW, MEMBER_NAME, JOIN_DATE)
+		    VALUES (?, ?, ?, ?)
+		</entry>
+
     
     <entry key="memberLogin">
-        SELECT MEMBER_NO, MEMBER_ID, MEMBER_NAME
+        SELECT MEMBER_ID, MEMBER_NAME
         FROM TB_MEMBER
         WHERE MEMBER_ID = ?
         AND MEMBER_PW = ?
@@ -21,7 +22,6 @@
         POST_TITLE, 
         POST_TOPIC,
         POST_OPTION,
-        MEMBER_NO,
         TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE
         FROM TB_POST 
         ORDER BY POST_NO DESC
@@ -33,7 +33,6 @@
         POST_TITLE, 
         POST_TOPIC,
         POST_OPTION,
-        MEMBER_NO,
         TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE
         FROM TB_POST
         WHERE POST_TOPIC = ?
@@ -59,7 +58,6 @@
         POST_TOPIC,
         POST_OPTION,
         POST_CHECK,
-        MEMBER_NO,
         TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE
         FROM TB_POST
         WHERE POST_NO = ?
@@ -75,7 +73,6 @@
     <entry key="postDelete">
         DELETE FROM TB_POST
         WHERE POST_NO = ?
-        AND MEMBER_NO = ?
     </entry>
     
     <entry key="postUpdate">
@@ -85,6 +82,5 @@
             POST_TOPIC = ?,
             POST_OPTION = ?
         WHERE POST_NO = ?
-        AND MEMBER_NO = ?
     </entry>
 </properties>
