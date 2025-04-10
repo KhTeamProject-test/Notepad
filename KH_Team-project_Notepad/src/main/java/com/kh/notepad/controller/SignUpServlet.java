@@ -56,7 +56,7 @@ public class SignUpServlet extends HttpServlet {
             
         } catch (SQLException e) {
             e.printStackTrace();
-            request.getSession().setAttribute("message", "회원 가입 중 오류가 발생했습니다.");
+            request.getSession().setAttribute("message", "중복된 아이디 입니다");
 
             response.sendRedirect(request.getContextPath()  + "/signup");
         }
