@@ -14,11 +14,16 @@
 <body>
     
     <c:if test="${empty sessionScope.loginMember}">
+		
+		<div id="mainLoginBtn">
+	   	 <a href="/loginPage">로그인</a>
 	   	 <a href="${pageContext.request.contextPath}/loginPage">로그인</a>
      	</div>
      	<div id="signUpBtn">
      		<a href="${pageContext.request.contextPath}/signupPage">회원가입</a>
      	</div>
+     	
+     	<div id="newMemo"><a href="/addPost">새 메모 작성하기</a></div>
      	
      	<h1>Notepad</h1>
      	
@@ -30,7 +35,20 @@
 	    
 	    <h3>전체 메모 개수: ${fn:length(postList)}개/ 
 	        체크된 메모 개수: ${checkedCount}개</h3>
-     	
+	    
+	    <hr>
+	    
+	  
+	    <div class="mainPosts">
+		    <c:forEach items="${openPostList}" var="openPost">
+		    	<div class="openPost">
+		    		${openPost.memberName}
+		    		
+		    	</div>
+		    </c:forEach>  
+	    </div>    
+	        
+	    
 	</c:if>
 	
 	
@@ -50,12 +68,29 @@
 		    <h3>전체 메모 개수: ${fn:length(postList)}개 / 
 		        체크된 메모 개수: ${checkedCount}개</h3>
 			
+
 			<form action="${pageContext.request.contextPath}/addPost" method="get">
 			    <button type="submit">메모 작성하기</button>
 			</form>
+
 	    </div>
         
 	</c:if>
+    
+    <%-- session 범위에 message가 있을 경우  --%>
+	<c:if test="${not empty sessionScope.message}">
+		<script>
+			//JS 영역
+			alert("${message}")
+			// JSP 해석 순위
+			// 1순위 : Java
+			// 2순위 : Front(HTML/CSS/JS)
+		</script>
+		
+		<%-- message를 한번만 출력하고 제거 --%>
+		<c:remove var="message" scope="session"/>
+	</c:if>
+    
     	<c:if test="${not empty sessionScope.message}">
 		<script>
 			alert("${message}");
