@@ -95,7 +95,7 @@ public class MemberDAO {
         
         return member;
     }
-	public int memberUpdate(Connection conn, String memberId, String memberPw, String memberName) throws SQLException {
+	public int memberUpdate(Connection conn, Member member) throws SQLException {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -104,9 +104,9 @@ public class MemberDAO {
 			String sql = prop.getProperty("memberUpdate");
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memberPw);
-			pstmt.setString(2, memberName);
-			pstmt.setString(3, memberId);
+			pstmt.setString(1, member.getMemberPw());
+			pstmt.setString(2, member.getMemberName());
+			pstmt.setString(3, member.getMemberId());
 			
 			result = pstmt.executeUpdate();
 			

@@ -56,11 +56,16 @@ public class MemberService {
 	 * @return 
 	 * @throws SQLException 
 	 */
-	public int memberUpdate(String memberId, String memberPw, String memberName) throws SQLException {
+	public int memberUpdate(Member member) throws SQLException {
 		
 		Connection conn = JDBCTemplate.getConnection();
 		
-		int result = dao.memberUpdate(conn, memberId, memberPw, memberName);
+		int result = dao.memberUpdate(conn, member);
+		
+        if(result > 0)
+            JDBCTemplate.commit(conn);
+        else
+            JDBCTemplate.rollback(conn);
 		
 		JDBCTemplate.close(conn);
 		
