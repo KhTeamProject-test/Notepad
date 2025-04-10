@@ -13,13 +13,11 @@
 </head>
 <body>
     
-    <c:if test="${empty session.loginMember}">
-		
-		<div id="mainLoginBtn">
-	   	 <a href="/loginPage">로그인</a>
+    <c:if test="${empty sessionScope.loginMember}">
+	   	 <a href="${pageContext.request.contextPath}/loginPage">로그인</a>
      	</div>
      	<div id="signUpBtn">
-     		<a href="/signupPage">회원가입</a>
+     		<a href="${pageContext.request.contextPath}/signupPage">회원가입</a>
      	</div>
      	
      	<h1>Notepad</h1>
@@ -37,7 +35,7 @@
 	
 	
 	
-	<c:if test="${not empty session.loginMember}">
+	<c:if test="${not empty sessionScope.loginMember}">
 		<p> ${session.loginMember}님을 환영합니다</p><br>
         <button type="button" id="logout">로그아웃</button>
         
@@ -57,7 +55,13 @@
 	    </div>
         
 	</c:if>
-    
+    	<c:if test="${not empty sessionScope.message}">
+		<script>
+			alert("${message}");
+		</script>
+
+		<c:remove var="message" scope="session" />
+	</c:if>
     <script src="/resources/js/main.js"></script>
 </body>
 </html>

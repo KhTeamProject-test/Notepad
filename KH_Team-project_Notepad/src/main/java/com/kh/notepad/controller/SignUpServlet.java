@@ -27,9 +27,9 @@ public class SignUpServlet extends HttpServlet {
         
         try {
             // 파라미터 얻어오기
-            String memberId = request.getParameter("userId");
-            String memberPw = request.getParameter("userPw");
-            String memberName = request.getParameter("userName");
+            String memberId = request.getParameter("memberId");
+            String memberPw = request.getParameter("memberPw");
+            String memberName = request.getParameter("memberName");
 
             // Member 객체에 파라미터 세팅
             Member member = new Member();
