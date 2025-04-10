@@ -53,3 +53,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+const newMemo = document.querySelector("#newMemo");
+newMemo.addEventListener("click", ()=>{
+    location.href = "/newmemo";
+});
