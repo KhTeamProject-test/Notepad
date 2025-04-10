@@ -11,7 +11,7 @@
 
     <h1>${sessionScope.loginMember.memberName} 님, 메모를 작성하세요</h1>
 
-    <form action="${pageContext.request.contextPath}/addPost" method="post">
+    <form action="${pageContext.request.contextPath}/addPost/post" method="post">
         <div>
             <label>제목:</label>
             <input type="text" name="title" required />
@@ -41,7 +41,7 @@
         </div>
 
         <button type="submit">등록</button>
-        <button type="button" onclick="location.href='${pageContext.request.contextPath}/post/list'">취소</button>
+        <button type="button" onclick="location.href='${pageContext.request.contextPath}/main'">취소</button>
     </form>
 
     <c:if test="${not empty sessionScope.message}">
