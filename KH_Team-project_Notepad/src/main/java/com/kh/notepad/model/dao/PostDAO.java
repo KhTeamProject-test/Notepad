@@ -408,7 +408,7 @@ public class PostDAO {
                 post.setPostTitle(rs.getString("POST_TITLE"));
                 post.setPostTopic(rs.getInt("POST_TOPIC"));
                 post.setPostOption(rs.getInt("POST_OPTION"));
-                post.setMemberId(rs.getString("MEMBER_NAME"));
+//                post.setMemberId(rs.getString("MEMBER_NAME"));
                 post.setMemberId(rs.getString("MEMBER_ID"));
                 post.setRegDate(rs.getString("REG_DATE"));
                 

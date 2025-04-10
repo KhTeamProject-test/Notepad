@@ -59,8 +59,9 @@
     </entry>
     
     <entry key="postAdd">
-        INSERT INTO TB_POST
-        VALUES(SEQ_POST_NO.NEXTVAL, ?, ?, ?, ?, ?, DEFAULT, DEFAULT)
+        INSERT INTO TB_POST (POST_NO, POST_TITLE, POST_CONTENT, POST_TOPIC, POST_OPTION, 
+        MEMBER_ID, POST_CHECK, REG_DATE)
+		VALUES (SEQ_POST_NO.NEXTVAL, ?, ?, ?, ?, ?, DEFAULT, DEFAULT)
     </entry>  
         
     <entry key="postDetail">

@@ -31,16 +31,16 @@ public class AddPostServlet extends HttpServlet {
             // 로그인 여부 확인
             if (loginMember == null) {
                 session.setAttribute("message", "로그인 후 이용해주세요.");
-                response.sendRedirect(request.getContextPath() + "/login");
+                response.sendRedirect(request.getContextPath() + "/loginPage");
                 return;
             }
-
+            
             // 파라미터 추출
             String title = request.getParameter("title");
             String content = request.getParameter("content");
             int topic = Integer.parseInt(request.getParameter("topic"));
             int option = Integer.parseInt(request.getParameter("option"));
-            String Id = request.getParameter("${sessionScope.loginMember.memberId}");
+            String Id = loginMember.getMemberId();
             
             Post post = new Post();
             post.setPostTitle(title);
