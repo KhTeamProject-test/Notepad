@@ -61,7 +61,6 @@ public class PostDAO {
                 post.setPostOption(rs.getInt("POST_OPTION"));
                 post.setMemberId(rs.getString("MEMBER_ID"));
                 post.setRegDate(rs.getString("REG_DATE"));
-                
                 // 체크리스트인 경우 체크 상태도 가져옴
                 if(post.getPostOption() == 2) {
                     post.setPostCheck(rs.getInt("POST_CHECK") == 1);
@@ -368,6 +367,7 @@ public class PostDAO {
                 post.setPostTitle(rs.getString("POST_TITLE"));
                 post.setPostTopic(rs.getInt("POST_TOPIC"));
                 post.setPostOption(rs.getInt("POST_OPTION"));
+                post.setMemberId(rs.getString("MEMBER_NAME"));
                 post.setMemberId(rs.getString("MEMBER_ID"));
                 post.setRegDate(rs.getString("REG_DATE"));
                 
