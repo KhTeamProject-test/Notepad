@@ -164,12 +164,11 @@ public class PostDAO {
             String sql = prop.getProperty("postAdd");
             
             pstmt = conn.prepareStatement(sql);
-            
-            pstmt.setString(1, post.getPostTitle());
-            pstmt.setString(2, post.getPostContent());
-            pstmt.setInt(3, post.getPostTopic());
+            pstmt.setString(1, post.getMemberId());
+            pstmt.setString(2, post.getPostTitle());
+            pstmt.setString(3, post.getPostContent());
             pstmt.setInt(4, post.getPostOption());
-            pstmt.setString(5, post.getMemberId());
+            pstmt.setInt(5, post.getPostTopic());
 
             result = pstmt.executeUpdate();
             

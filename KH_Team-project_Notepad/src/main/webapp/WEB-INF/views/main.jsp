@@ -27,8 +27,7 @@
      	<h1>Notepad</h1>
      	
      	<div class="topic-filter">
-	        <button type="button" data-topic="all" class="active">전체</button>
-	        <button type="button" data-topic="0">공개</button>
+			<button type="button" data-topic="1">자유</button>
 	    </div>
 	    
 	    <h3>전체 메모 개수: ${fn:length(postList)}개/ 
@@ -63,12 +62,9 @@
         
         <div class="topic-filter">
 	        <button type="button" data-topic="all" class="active">전체</button>
-	        <button type="button" data-topic="0">공개</button>
-	        <button type="button" data-topic="1">비공개</button>
-	        <button type="button" data-topic="2">Checked</button>
-	        <button type="button" data-topic="3">자유</button>
-	        <button type="button" data-topic="4">질문</button>
-	        <button type="button" data-topic="5">취미</button>
+			<button type="button" data-topic="1">자유</button>
+	        <button type="button" data-topic="2">질문</button>
+	        <button type="button" data-topic="3">취미</button>
 		  
 		    <h3>전체 메모 개수: ${fn:length(postList)}개 / 
 		        체크된 메모 개수: ${checkedCount}개</h3>
@@ -80,62 +76,17 @@
 	    
 	    <div class="mainPosts">
 
-		    <!-- 공개 글 리스트 -->
-		    <div class="post-list" data-topic="0">
-		        <c:forEach items="${openPostList}" var="openPost">
-		            <div class="post openPost">
-		                ${openPost.postNo}
-	 		    		${openPost.postTitle}
-	 		    		${openPost.postContent}
-			    		${openPost.postTopic}
-	 		    		${openPost.postOption}
-	 		    		${openPost.memberId}
-			    		${openPost.regDate}
-		            </div>
-		        </c:forEach>
-		    </div>
-		
-		    <!-- 비공개 글 리스트 -->
-		    <div class="post-list" data-topic="1" style="display:none;">
-		        <c:forEach items="${privatePostList}" var="privatePost">
-		            <div class="post privatePost">
-		                ${openPost.postNo}
-	 		    		${openPost.postTitle}
-	 		    		${openPost.postContent}
-			    		${openPost.postTopic}
-	 		    		${openPost.postOption}
-	 		    		${openPost.memberId}
-			    		${openPost.regDate}
-		            </div>
-		        </c:forEach>
-		    </div>
-			
-			<%-- 체크된 글 리스트 --%>
-		    <div class="post-list" data-topic="2" style="display:none;">
-		        <c:forEach items="${checkedPostList}" var="checkedPost">
-		            <div class="post checkedPost">
-		                ${openPost.postNo}
-	 		    		${openPost.postTitle}
-	 		    		${openPost.postContent}
-			    		${openPost.postTopic}
-	 		    		${openPost.postOption}
-	 		    		${openPost.memberId}
-			    		${openPost.regDate}
-		            </div>
-		        </c:forEach>
-		    </div>
-	
 			<%-- 첫번째 토픽 글 리스트 --%>
 		    <div class="post-list" data-topic="3" style="display:none;">
 		        <c:forEach items="${firstTopicPostList}" var="firstTopicPost">
 		            <div class="post firstTopicPost">
-		                ${openPost.postNo}
-	 		    		${openPost.postTitle}
-	 		    		${openPost.postContent}
-			    		${openPost.postTopic}
-	 		    		${openPost.postOption}
-	 		    		${openPost.memberId}
-			    		${openPost.regDate}
+		                ${firstTopicPostList.postNo}
+	 		    		${firstTopicPostList.postTitle}
+	 		    		${firstTopicPostList.postContent}
+			    		${firstTopicPostList.postTopic}
+	 		    		${firstTopicPostList.postOption}
+	 		    		${firstTopicPostList.memberId}
+			    		${firstTopicPostList.regDate}
 		            </div>
 		        </c:forEach>
 		    </div>
@@ -144,13 +95,13 @@
 		    <div class="post-list" data-topic="4" style="display:none;">
 		        <c:forEach items="${secondTopicPostList}" var="secondTopicPost">
 		            <div class="post secondTopicPost">
-		                ${openPost.postNo}
-	 		    		${openPost.postTitle}
-	 		    		${openPost.postContent}
-			    		${openPost.postTopic}
-	 		    		${openPost.postOption}
-	 		    		${openPost.memberId}
-			    		${openPost.regDate}
+		                ${secondTopicPostList.postNo}
+	 		    		${secondTopicPostList.postTitle}
+	 		    		${secondTopicPostList.postContent}
+			    		${secondTopicPostList.postTopic}
+	 		    		${secondTopicPostList.postOption}
+	 		    		${secondTopicPostList.memberId}
+			    		${secondTopicPostList.regDate}
 		            </div>
 		        </c:forEach>
 		    </div>
@@ -159,13 +110,13 @@
 		    <div class="post-list" data-topic="5" style="display:none;">
 		        <c:forEach items="${thirdTopicPostList}" var="thirdTopicPost">
 		            <div class="post thirdTopicPost">
-		                ${openPost.postNo}
-	 		    		${openPost.postTitle}
-	 		    		${openPost.postContent}
-			    		${openPost.postTopic}
-	 		    		${openPost.postOption}
-	 		    		${openPost.memberId}
-			    		${openPost.regDate}
+		                ${thirdTopicPostList.postNo}
+	 		    		${thirdTopicPostList.postTitle}
+	 		    		${thirdTopicPostList.postContent}
+			    		${thirdTopicPostList.postTopic}
+	 		    		${thirdTopicPostList.postOption}
+	 		    		${thirdTopicPostList.memberId}
+			    		${thirdTopicPostList.regDate}
 		            </div>
 		        </c:forEach>
 		    </div>

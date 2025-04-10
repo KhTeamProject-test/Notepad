@@ -10,6 +10,7 @@
 <body>
 
     <h1>${sessionScope.loginMember.memberName} 님, 메모를 작성하세요</h1>
+	<input type="hidden" name="Id" value="${sessionScope.loginMember.memberId}">
 
     <form action="${pageContext.request.contextPath}/addPost/post" method="post">
         <div>
@@ -31,7 +32,7 @@
             </select>
         </div>
 
-        <div>
+        <div style="display:none;">
             <label>옵션:</label>
             <select name="option">
                 <option value="0">공개</option>
