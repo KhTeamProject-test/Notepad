@@ -16,43 +16,47 @@
     <c:if test="${empty session.loginMember}">
 		
 		<div id="mainLoginBtn">
-	    <a href="/loginPage">로그인</a>
+	   	 <a href="/loginPage">로그인</a>
      	</div>
      	<div id="signUpBtn">
-     	<a href="/signupPage">회원가입</a>
+     		<a href="/signupPage">회원가입</a>
      	</div>
-		</c:if>
+     	
+     	<h1>Notepad</h1>
+     	
+     	<div class="topic-filter">
+	        <button type="button" data-topic="all" class="active">전체</button>
+	        <button type="button" data-topic="0">공지</button>
+	        <button type="button" data-topic="1">공개</button>
+	    </div>
+	    
+	    <h3>전체 메모 개수: ${fn:length(postList)}개/ 
+	        체크된 메모 개수: ${checkedCount}개</h3>
+     	
+	</c:if>
 	
-		<c:if test="${not empty session.loginMember}">
+	
+	
+	<c:if test="${not empty session.loginMember}">
 		<p> ${session.loginMember}님을 환영합니다</p><br>
         <button type="button" id="logout">로그아웃</button>
-		</c:if>
-    
-    
-    
         
-    <h1>Notepad</h1>
-    
-    <div class="topic-filter">
-        <button type="button" data-topic="all" class="active">전체</button>
-        <button type="button" data-topic="0">공지</button>
-        <button type="button" data-topic="1">공개</button>
-        <button type="button" data-topic="2">비공개</button>
-        <button type="button" data-topic="3">Checked</button>
-    </div>
-    
-    <h3>전체 메모 개수: ${fn:length(postList)}개 / 
-        체크된 메모 개수: ${checkedCount}개</h3>
-	
-	<div id="newMemo">새 메모 작성하기</div>
-	
-    <hr>
-    
-    	
-    
-    <hr>
-    
-    
+        <h1>Notepad</h1>
+        
+        <div class="topic-filter">
+	        <button type="button" data-topic="all" class="active">전체</button>
+	        <button type="button" data-topic="0">공지</button>
+	        <button type="button" data-topic="1">공개</button>
+	        <button type="button" data-topic="2">비공개</button>
+	        <button type="button" data-topic="3">Checked</button>
+		  
+		    <h3>전체 메모 개수: ${fn:length(postList)}개 / 
+		        체크된 메모 개수: ${checkedCount}개</h3>
+			
+			<div id="newMemo">새 메모 작성하기</div>
+	    </div>
+        
+	</c:if>
     
     <script src="/resources/js/main.js"></script>
 </body>
