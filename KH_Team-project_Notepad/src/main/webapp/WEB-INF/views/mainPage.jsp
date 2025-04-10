@@ -14,7 +14,8 @@
 <body>
 	
 	 <div id="mainLoginBtn">
-	    <a href="/login">로그인</a>
+	    <a href="${pageContext.request.contextPath}/loginPage">로그인</a>
+	    <a href="${pageContext.request.contextPath}/signupPage">회원가입</a>
      </div>
 	
 	<h1>Notepad</h1>
