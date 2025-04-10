@@ -20,9 +20,9 @@
         <div>
             주제: 
             <c:choose>
-                <c:when test="${post.postTopic == 0}">자유</c:when>
-                <c:when test="${post.postTopic == 1}">질문</c:when>
-                <c:when test="${post.postTopic == 2}">취미</c:when>
+                <c:when test="${post.postTopic == 0}">공지</c:when>
+                <c:when test="${post.postTopic == 1}">개인</c:when>
+                <c:when test="${post.postTopic == 2}">업무</c:when>
             </c:choose>
         </div>
         
