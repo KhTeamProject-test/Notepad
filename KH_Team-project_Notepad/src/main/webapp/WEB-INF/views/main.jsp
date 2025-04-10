@@ -16,7 +16,7 @@
     <c:if test="${empty sessionScope.loginMember}">
 		
 		<div id="mainLoginBtn">
-
+      
 	   	 <a href="${pageContext.request.contextPath}/loginPage">로그인</a>
 
      	</div>
@@ -39,15 +39,13 @@
 	    <div class="mainPosts">
 		    <c:forEach items="${openPostList}" var="openPost">
 		    	<div class="openPost">
-
-					${openPost.postNo}
+				  	${openPost.postNo}
  		    		${openPost.postTitle}
  		    		${openPost.postContent}
 		    		${openPost.postTopic}
  		    		${openPost.postOption}
  		    		${openPost.memberId}
 		    		${openPost.regDate}
-
 		    	</div>
 		    </c:forEach>  
 	    </div>    
@@ -58,7 +56,9 @@
 	
 	<c:if test="${not empty sessionScope.loginMember}">
 		<p> ${session.loginMember}님을 환영합니다</p><br>
-        <button type="button" id="logout" >로그아웃</button>
+
+        <button type="button" id="logout">로그아웃</button>
+        <a href="${pageContext.request.contextPath}/member/updatePage">회원 정보 수정</a>
         
         <h1>Notepad</h1>
         
