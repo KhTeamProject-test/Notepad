@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 #newMemo {
   border: 1px solid black;
   border-radius: 5px;
@@ -37,6 +41,6 @@ text-decoration: none;
 .openPost {
   border: 1px solid black;
   border-radius: 5px;
-  width: 10%;
-  height: 200px;
+  width: 25%;
+  height: 300px;
 }
