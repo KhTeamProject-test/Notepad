@@ -36,17 +36,22 @@
 	        체크된 메모 개수: ${checkedCount}개</h3>
 	    
 	    <hr>
-	    
 	  
 	    <div class="mainPosts">
 		    <c:forEach items="${openPostList}" var="openPost">
 		    	<div class="openPost">
-		    		${openPost.memberId}
-		    		
+
+					${openPost.postNo}
+ 		    		${openPost.postTitle}
+ 		    		${openPost.postContent}
+		    		${openPost.postTopic}
+ 		    		${openPost.postOption}
+ 		    		${openPost.memberId}
+		    		${openPost.regDate}
+
 		    	</div>
 		    </c:forEach>  
 	    </div>    
-	        
 	    
 	</c:if>
 	
@@ -66,7 +71,6 @@
 		  
 		    <h3>전체 메모 개수: ${fn:length(postList)}개 / 
 		        체크된 메모 개수: ${checkedCount}개</h3>
-			
 
 			<form action="${pageContext.request.contextPath}/addPost" method="get">
 			    <button type="submit">메모 작성하기</button>
@@ -79,11 +83,7 @@
     <%-- session 범위에 message가 있을 경우  --%>
 	<c:if test="${not empty sessionScope.message}">
 		<script>
-			//JS 영역
 			alert("${message}")
-			// JSP 해석 순위
-			// 1순위 : Java
-			// 2순위 : Front(HTML/CSS/JS)
 		</script>
 		
 		<%-- message를 한번만 출력하고 제거 --%>
