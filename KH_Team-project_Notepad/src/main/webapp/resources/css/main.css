@@ -49,3 +49,24 @@ text-decoration: none;
   display: flex;
   border: 1px solid black;
 }
+
+.firstTopicPost{
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 25%;
+  height: 300px;
+}
+
+.secondTopicPost{
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 25%;
+  height: 300px;
+}
+
+.thirdTopicPost{
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 25%;
+  height: 300px;
+}
