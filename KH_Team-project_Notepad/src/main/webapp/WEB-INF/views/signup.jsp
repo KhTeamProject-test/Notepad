@@ -10,7 +10,8 @@
 <title>회원가입</title>
 </head>
 <body>
-
+	<h1><a href="${pageContext.request.contextPath}/main">Notepad</a></h1>
+	
 	<h2>회원가입</h2>
 
 	<form action="${pageContext.request.contextPath}/signup" method="post">

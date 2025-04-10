@@ -18,12 +18,12 @@
 	<h4>유저 정보 수정</h4>
 	
 	<form action="/member/update" method="post">
-		비밀번호 : <input type="password" name="memberPw"> <br>
-		비밀번호 확인 : <input type="password" name="memberPwCheck"> <br>
-		이름 : <input type="text" name="memberName"> <br>
+		비밀번호 : <input type="password" id="memberPw" name="memberPw"> <br>
+		비밀번호 확인 : <input type="password" id="memberPwCheck" name="memberPwCheck"> <br>
+		이름 : <input type="text" id="memberName" name="memberName"> <br>
 		
 		<input type="hidden" name="memberId" value="${param.memberId}">
-		<button>수정</button> <button>취소</button>
+		<button type="submit">수정</button> <button  type="button">취소</button>
 	</form>
 	
 	<%-- session 범위에 message가 있을 경우 --%>

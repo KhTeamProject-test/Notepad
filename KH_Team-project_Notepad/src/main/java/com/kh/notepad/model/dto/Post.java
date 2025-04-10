@@ -1,5 +1,13 @@
 package com.kh.notepad.model.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@NoArgsConstructor
+@ToString
 public class Post {
     private int postNo;
     private String postTitle;
@@ -7,32 +15,32 @@ public class Post {
     private int postTopic;     // 0: 공지, 1: 개인, 2: 업무
     private int postOption;    // 0: 공개, 1: 비공개, 2: 체크리스트
     private boolean postCheck; // 체크 상태 (체크리스트인 경우만 사용)
-    private String memberName; // 작성자 이름 (조회용)
+    private String memberId; // 작성자 이름 (조회용)
     private String regDate;    // 등록일
     
-    public Post() {}
+
+
 
     // 메인 목록 조회용 생성자
-    public Post(int postNo, String postTitle, int postTopic, int postOption, boolean postCheck, String memberName, String regDate) {
-
+    public Post(int postNo, String postTitle, int postTopic, int postOption, boolean postCheck, String memberId, String regDate) {
         this.postNo = postNo;
         this.postTitle = postTitle;
         this.postTopic = postTopic;
         this.postOption = postOption;
         this.postCheck = postCheck;
-        this.memberName = memberName;
+        this.memberId = memberId;
         this.regDate = regDate;
     }
 
     // 상세 조회용 생성자
-    public Post(int postNo, String postTitle, String postContent, int postTopic, int postOption, boolean postCheck, String memberName, String regDate) {
+    public Post(int postNo, String postTitle, String postContent, int postTopic, int postOption, boolean postCheck, String memberId, String regDate) {
         this.postNo = postNo;
         this.postTitle = postTitle;
         this.postContent = postContent;
         this.postTopic = postTopic;
         this.postOption = postOption;
         this.postCheck = postCheck;
-        this.memberName = memberName;
+        this.memberId = memberId;
         this.regDate = regDate;
     }
 
@@ -85,12 +93,12 @@ public class Post {
         this.postCheck = postCheck;
     }
 
-    public String getMemberName() {
-        return memberName;
+    public String getMemberId() {
+        return memberId;
     }
 
-    public void setMemberName(String memberName) {
-        this.memberName = memberName;
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
 
     public String getRegDate() {
@@ -104,7 +112,8 @@ public class Post {
     @Override
     public String toString() {
         return "Post [postNo=" + postNo + ", postTitle=" + postTitle + ", postContent=" + postContent + ", postTopic="
-                + postTopic + ", postOption=" + postOption + ", postCheck=" + postCheck + ", memberName=" + memberName + ", regDate=" + regDate + "]";
+                + postTopic + ", postOption=" + postOption + ", postCheck=" + postCheck + ", memberName=" + memberId + ", regDate=" + regDate + "]";
 
     }
 }
+
