@@ -5,3 +5,31 @@
   width: 100px;
   cursor: pointer;
 }
+
+#mainLoginBtn {
+  border: 1px solid black;
+border-radius: 5px;
+width: 200px;
+height: 70px;
+font-size: xx-large;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color:blanchedalmond;
+cursor: pointer;
+text-decoration: none;
+}
+
+#signUpBtn {
+  border: 1px solid black;
+border-radius: 5px;
+width: 200px;
+height: 70px;
+font-size: xx-large;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color:blanchedalmond;
+cursor: pointer;
+text-decoration: none;
+}

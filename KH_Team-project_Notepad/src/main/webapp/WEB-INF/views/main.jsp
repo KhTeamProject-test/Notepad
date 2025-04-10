@@ -13,7 +13,23 @@
 </head>
 <body>
     
+    <c:if test="${empty session.loginMember}">
+		
+		<div id="mainLoginBtn">
+	    <a href="/loginPage">로그인</a>
+     	</div>
+     	<div id="signUpBtn">
+     	<a href="/signupPage">회원가입</a>
+     	</div>
+		</c:if>
+	
+		<c:if test="${not empty session.loginMember}">
+		<p> ${session.loginMember}님을 환영합니다</p><br>
         <button type="button" id="logout">로그아웃</button>
+		</c:if>
+    
+    
+    
         
     <h1>Notepad</h1>
     
