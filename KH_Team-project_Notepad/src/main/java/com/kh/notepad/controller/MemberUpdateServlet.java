@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpSession;
 public class MemberUpdateServlet extends HttpServlet{
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
 			
