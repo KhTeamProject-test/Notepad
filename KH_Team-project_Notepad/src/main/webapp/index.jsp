@@ -9,5 +9,4 @@
  --%>
 
 
-<jsp:forward page="/mainpage"/>
-
+<jsp:forward page="/main"/>
