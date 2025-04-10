@@ -6,58 +6,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>${todo.todoTitle} 상세 조회</title>
-	<link rel="stylesheet" href="/resources/css/detail.css">
+    <meta charset="UTF-8">
+    <title>${post.postTitle} 상세 조회</title>
+    <link rel="stylesheet" href="/resources/css/detail.css">
 </head>
 <body>
 
-	<h1>${sessionScope.loginMember}</h1>
+    <h1>${sessionScope.loginMember.memberName}</h1>
 
-	<h1>${todo.todoTitle}</h1>
+    <h1>${post.postTitle}</h1>
 
-	<div class="complete">
-		완료 여부 :
-		
-		<c:if test="${todo.todoComplete}">
-			<span class="green">O</span>
-		</c:if>
-		
-		<c:if test="${not todo.todoComplete}">
-			<span class="red">X</span>
-		</c:if>
-	</div>
+    <div class="post-info">
+        <div>
+            주제: 
+            <c:choose>
+                <c:when test="${post.postTopic == 0}">공지</c:when>
+                <c:when test="${post.postTopic == 1}">개인</c:when>
+                <c:when test="${post.postTopic == 2}">업무</c:when>
+            </c:choose>
+        </div>
+        
+        <div>
+            옵션: 
+            <c:choose>
+                <c:when test="${post.postOption == 0}">공개</c:when>
+                <c:when test="${post.postOption == 1}">비공개</c:when>
+                <c:when test="${post.postOption == 2}">체크리스트</c:when>
+            </c:choose>
+        </div>
+        
+        <c:if test="${post.postOption == 2}">
+            <div class="check-status">
+                체크 상태:
+                <c:if test="${post.postCheck}">
+                    <span class="green">완료 ✓</span>
+                </c:if>
+                <c:if test="${not post.postCheck}">
+                    <span class="red">미완료 □</span>
+                </c:if>
+            </div>
+        </c:if>
+    </div>
 
-	<div>
-		작성일 : ${todo.regDate}
-	</div>
+    <div>
+        작성일: ${post.regDate}
+    </div>
 
-	<div class="content">${todo.todoDetail}</div>
-	
-	<div class="btn-container">
-		<div>
-			<button type="button" id="goToList">목록으로</button>
-		</div>
-		
-		<div>
-			<button id="completeBtn">완료 여부 변경</button>
-			<button id="updateBtn">수정</button>
-			<button id="deleteBtn">삭제</button>
-		</div>
-	</div>
-	
-	
-	
-	<%-- session 범위에 message가 있을 경우 --%>
-	<c:if test="${not empty sessionScope.message}">
-		<script>
-			alert("${message}");
-		</script>
-		
-		<c:remove var="message" scope="session" />
-	</c:if>
-	
-	
-	<script src="/resources/js/detail.js"></script>
+    <div class="content">${post.postContent}</div>
+    
+    <div class="btn-container">
+        <div>
+            <button type="button" id="goToList">목록으로</button>
+        </div>
+        
+        <c:if test="${sessionScope.loginMember.memberNo == post.memberNo}">
+            <div>
+                <c:if test="${post.postOption == 2}">
+                    <button id="toggleCheckBtn">체크 상태 변경</button>
+                </c:if>
+                <button id="updateBtn">수정</button>
+                <button id="deleteBtn">삭제</button>
+            </div>
+        </c:if>
+    </div>
+    
+    <c:if test="${not empty sessionScope.message}">
+        <script>
+            alert("${message}");
+        </script>
+        
+        <c:remove var="message" scope="session" />
+    </c:if>
+    
+    <script src="/resources/js/detail.js"></script>
 </body>
 </html>

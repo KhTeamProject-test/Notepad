@@ -95,7 +95,6 @@ public class MemberDAO {
         
         return member;
     }
-
 	public int memberUpdate(Connection conn, String memberId, String memberPw, String memberName) throws SQLException {
 		
 		int result = 0;
@@ -115,4 +114,5 @@ public class MemberDAO {
 		}
 		return result;
 	}
+
 }

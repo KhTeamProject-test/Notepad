@@ -14,6 +14,7 @@ public class Post {
 
     // 메인 목록 조회용 생성자
     public Post(int postNo, String postTitle, int postTopic, int postOption, boolean postCheck, String memberName, String regDate) {
+
         this.postNo = postNo;
         this.postTitle = postTitle;
         this.postTopic = postTopic;
@@ -104,5 +105,6 @@ public class Post {
     public String toString() {
         return "Post [postNo=" + postNo + ", postTitle=" + postTitle + ", postContent=" + postContent + ", postTopic="
                 + postTopic + ", postOption=" + postOption + ", postCheck=" + postCheck + ", memberName=" + memberName + ", regDate=" + regDate + "]";
+
     }
 }

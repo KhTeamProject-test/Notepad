@@ -9,7 +9,6 @@ public class Member {
     private Date enrollDate;
     
     public Member() {}
-
     public Member(String memberId, String memberPw, String memberName, Date enrollDate) {
         this.memberId = memberId;
         this.memberPw = memberPw;
@@ -17,7 +16,6 @@ public class Member {
         this.enrollDate = enrollDate;
     }
     
-
     public String getMemberId() {
         return memberId;
     }
@@ -53,6 +51,7 @@ public class Member {
     @Override
     public String toString() {
         return "Member [memberId=" + memberId + ", memberPw=" + memberPw + ", memberName="
+
                 + memberName + ", enrollDate=" + enrollDate + "]";
     }
 }

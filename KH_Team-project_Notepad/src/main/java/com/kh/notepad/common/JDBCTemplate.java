@@ -1,4 +1,4 @@
-package edu.kh.memo.common;
+package com.kh.notepad.common;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
