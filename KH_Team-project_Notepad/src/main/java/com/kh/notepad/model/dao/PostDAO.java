@@ -368,11 +368,8 @@ public class PostDAO {
                 post.setPostTitle(rs.getString("POST_TITLE"));
                 post.setPostTopic(rs.getInt("POST_TOPIC"));
                 post.setPostOption(rs.getInt("POST_OPTION"));
-<<<<<<< HEAD
                 post.setMemberId(rs.getString("MEMBER_NAME"));
-=======
                 post.setMemberId(rs.getString("MEMBER_ID"));
->>>>>>> 9241aad27fa6d380c4d0b05f6c346a2b9608fbfe
                 post.setRegDate(rs.getString("REG_DATE"));
                 
                 // 체크리스트인 경우 체크 상태도 가져옴

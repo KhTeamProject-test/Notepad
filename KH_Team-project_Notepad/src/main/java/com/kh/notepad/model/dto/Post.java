@@ -14,24 +14,15 @@ public class Post {
     private String postContent;
     private int postTopic;     // 0: 공지, 1: 개인, 2: 업무
     private int postOption;    // 0: 공개, 1: 비공개, 2: 체크리스트
-<<<<<<< HEAD
     private boolean postCheck; // 체크 상태 (체크리스트인 경우만 사용)
     private String memberId; // 작성자 이름 (조회용)
     private String regDate;    // 등록일
     
-    public Post() {}
+
+
 
     // 메인 목록 조회용 생성자
     public Post(int postNo, String postTitle, int postTopic, int postOption, boolean postCheck, String memberId, String regDate) {
-
-=======
-    private boolean postCheck;
-    private String memberId;
-    private String regDate;
-
-    // 메인 목록 조회용 생성자
-    public Post(int postNo, String postTitle, int postTopic, int postOption, boolean postCheck, String memberId, String regDate) {
->>>>>>> 9241aad27fa6d380c4d0b05f6c346a2b9608fbfe
         this.postNo = postNo;
         this.postTitle = postTitle;
         this.postTopic = postTopic;
@@ -52,7 +43,6 @@ public class Post {
         this.memberId = memberId;
         this.regDate = regDate;
     }
-<<<<<<< HEAD
 
     // Getters and Setters
     public int getPostNo() {
@@ -126,6 +116,4 @@ public class Post {
 
     }
 }
-=======
-}
->>>>>>> 9241aad27fa6d380c4d0b05f6c346a2b9608fbfe
+

@@ -35,7 +35,7 @@
 	    <hr>
 	    
 	  	
-	    <div class="mainPosts">
+	    <div class="openMainPosts">
 		    <c:forEach items="${openPostList}" var="openPost">
 		    	<div class="openPost">
 		    		${openPost.memberId}
@@ -57,30 +57,24 @@
         
         <div class="topic-filter">
 	        <button type="button" data-topic="all" class="active">전체</button>
-<<<<<<< HEAD
 	        <button type="button" data-topic="0">공개</button>
 	        <button type="button" data-topic="1">비공개</button>
 	        <button type="button" data-topic="2">Checked</button>
-=======
 	        <button type="button" data-topic="0">자유</button>
 	        <button type="button" data-topic="1">질문</button>
 	        <button type="button" data-topic="2">취미</button>
->>>>>>> 9241aad27fa6d380c4d0b05f6c346a2b9608fbfe
 		  
 		    <h3>전체 메모 개수: ${fn:length(postList)}개 / 
 		        체크된 메모 개수: ${checkedCount}개</h3>
 			
-<<<<<<< HEAD
 			<div id="newMemo"><a href="/addPost">새 메모 작성하기</a></div>
 			
 			<hr>
-=======
 
 			<form action="${pageContext.request.contextPath}/addPost" method="get">
 			    <button type="submit">메모 작성하기</button>
 			</form>
 
->>>>>>> 9241aad27fa6d380c4d0b05f6c346a2b9608fbfe
 	    </div>
         
 	</c:if>

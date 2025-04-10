@@ -35,11 +35,7 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("message", "환영합니다!");
 
                 // 메인 페이지로 리다이렉트
-<<<<<<< HEAD
                 response.sendRedirect("/");
-=======
-                response.sendRedirect(request.getContextPath()  + "/main");
->>>>>>> 9241aad27fa6d380c4d0b05f6c346a2b9608fbfe
             } else { // 로그인 실패
                 session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
                 // 로그인 페이지로 리다이렉트

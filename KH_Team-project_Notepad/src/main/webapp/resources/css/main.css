@@ -44,3 +44,8 @@ text-decoration: none;
   width: 25%;
   height: 300px;
 }
+
+.openMainPosts{
+  display: flex;
+  border: 1px solid black;
+}
