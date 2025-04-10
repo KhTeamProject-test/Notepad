@@ -13,12 +13,7 @@
 </head>
 <body>
 	
-	 <div id="mainLoginBtn">
-	    <a href="${pageContext.request.contextPath}/loginPage">로그인</a>
-	    <a href="${pageContext.request.contextPath}/signupPage">회원가입</a>
-     </div>
-	
-	<h1>Notepad</h1>
+	 <h1>Notepad</h1>
     
     <div class="topic-filter">
         <button type="button" data-topic="all" class="active">전체</button>
@@ -32,7 +27,7 @@
 
     <hr>
     <div>
-	    1
+	    
     </div>
     
     

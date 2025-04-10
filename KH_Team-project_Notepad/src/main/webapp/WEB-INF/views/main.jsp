@@ -17,9 +17,10 @@
 		
 		<div id="mainLoginBtn">
 	   	 <a href="/loginPage">로그인</a>
+	   	 <a href="${pageContext.request.contextPath}/loginPage">로그인</a>
      	</div>
      	<div id="signUpBtn">
-     		<a href="/signupPage">회원가입</a>
+     		<a href="${pageContext.request.contextPath}/signupPage">회원가입</a>
      	</div>
      	
      	<div id="newMemo"><a href="/addPost">새 메모 작성하기</a></div>
@@ -87,6 +88,13 @@
 		<c:remove var="message" scope="session"/>
 	</c:if>
     
+    	<c:if test="${not empty sessionScope.message}">
+		<script>
+			alert("${message}");
+		</script>
+
+		<c:remove var="message" scope="session" />
+	</c:if>
     <script src="/resources/js/main.js"></script>
 </body>
 </html>
