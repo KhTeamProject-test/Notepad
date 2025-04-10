@@ -61,15 +61,18 @@
         
         <div class="topic-filter">
 	        <button type="button" data-topic="all" class="active">전체</button>
-	        <button type="button" data-topic="0">공지</button>
-	        <button type="button" data-topic="1">공개</button>
-	        <button type="button" data-topic="2">비공개</button>
-	        <button type="button" data-topic="3">Checked</button>
+	        <button type="button" data-topic="0">자유</button>
+	        <button type="button" data-topic="1">질문</button>
+	        <button type="button" data-topic="2">취미</button>
 		  
 		    <h3>전체 메모 개수: ${fn:length(postList)}개 / 
 		        체크된 메모 개수: ${checkedCount}개</h3>
 			
-			<div id="newMemo"><a href="/addPost">새 메모 작성하기</a></div>
+
+			<form action="${pageContext.request.contextPath}/addPost" method="get">
+			    <button type="submit">메모 작성하기</button>
+			</form>
+
 	    </div>
         
 	</c:if>
