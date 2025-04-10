@@ -13,9 +13,7 @@
 </head>
 <body>
     
-    <c:if test="${empty session.loginMember}">
-		
-		<div id="mainLoginBtn">
+    <c:if test="${empty sessionScope.loginMember}">
 	   	 <a href="${pageContext.request.contextPath}/loginPage">로그인</a>
      	</div>
      	<div id="signUpBtn">
@@ -37,7 +35,7 @@
 	
 	
 	
-	<c:if test="${not empty session.loginMember}">
+	<c:if test="${not empty sessionScope.loginMember}">
 		<p> ${session.loginMember}님을 환영합니다</p><br>
         <button type="button" id="logout">로그아웃</button>
         
