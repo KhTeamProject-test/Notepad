@@ -2,7 +2,7 @@
   border: 1px solid black;
   border-radius: 5px;
   display: flex;
-  width: 150px;
+  width: 10px;
   cursor: pointer;
 }
 
@@ -32,4 +32,11 @@ align-items: center;
 background-color:blanchedalmond;
 cursor: pointer;
 text-decoration: none;
+}
+
+.openPost {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 10%;
+  height: 200px;
 }

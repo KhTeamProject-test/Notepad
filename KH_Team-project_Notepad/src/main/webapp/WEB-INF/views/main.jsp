@@ -32,7 +32,22 @@
 	    
 	    <h3>전체 메모 개수: ${fn:length(postList)}개/ 
 	        체크된 메모 개수: ${checkedCount}개</h3>
-     	
+	    
+	    <hr>
+	    
+	    <div class="openPost">
+	    		${openPost.memberName}
+	    		
+	    	</div>
+	        
+	    <c:forEach items="${openPostList}" var="openPost">
+	    	<div class="openPost">
+	    		${openPost.memberName}
+	    		
+	    	</div>
+	    </c:forEach>  
+	        
+	    
 	</c:if>
 	
 	
