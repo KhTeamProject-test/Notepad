@@ -7,33 +7,31 @@ public class Post {
     private int postTopic;     // 0: 공지, 1: 개인, 2: 업무
     private int postOption;    // 0: 공개, 1: 비공개, 2: 체크리스트
     private boolean postCheck; // 체크 상태 (체크리스트인 경우만 사용)
-    private int memberNo;      // 작성자 번호
     private String memberName; // 작성자 이름 (조회용)
     private String regDate;    // 등록일
     
     public Post() {}
 
     // 메인 목록 조회용 생성자
-    public Post(int postNo, String postTitle, int postTopic, int postOption, boolean postCheck, int memberNo, String memberName, String regDate) {
+    public Post(int postNo, String postTitle, int postTopic, int postOption, boolean postCheck, String memberName, String regDate) {
+
         this.postNo = postNo;
         this.postTitle = postTitle;
         this.postTopic = postTopic;
         this.postOption = postOption;
         this.postCheck = postCheck;
-        this.memberNo = memberNo;
         this.memberName = memberName;
         this.regDate = regDate;
     }
 
     // 상세 조회용 생성자
-    public Post(int postNo, String postTitle, String postContent, int postTopic, int postOption, boolean postCheck, int memberNo, String memberName, String regDate) {
+    public Post(int postNo, String postTitle, String postContent, int postTopic, int postOption, boolean postCheck, String memberName, String regDate) {
         this.postNo = postNo;
         this.postTitle = postTitle;
         this.postContent = postContent;
         this.postTopic = postTopic;
         this.postOption = postOption;
         this.postCheck = postCheck;
-        this.memberNo = memberNo;
         this.memberName = memberName;
         this.regDate = regDate;
     }
@@ -87,14 +85,6 @@ public class Post {
         this.postCheck = postCheck;
     }
 
-    public int getMemberNo() {
-        return memberNo;
-    }
-
-    public void setMemberNo(int memberNo) {
-        this.memberNo = memberNo;
-    }
-
     public String getMemberName() {
         return memberName;
     }
@@ -114,7 +104,7 @@ public class Post {
     @Override
     public String toString() {
         return "Post [postNo=" + postNo + ", postTitle=" + postTitle + ", postContent=" + postContent + ", postTopic="
-                + postTopic + ", postOption=" + postOption + ", postCheck=" + postCheck + ", memberNo=" + memberNo
-                + ", memberName=" + memberName + ", regDate=" + regDate + "]";
+                + postTopic + ", postOption=" + postOption + ", postCheck=" + postCheck + ", memberName=" + memberName + ", regDate=" + regDate + "]";
+
     }
 }

@@ -48,4 +48,23 @@ public class MemberService {
         
         return member;
     }
+
+	/** 유저 정보 수정 서비스
+	 * @param memberId
+	 * @param memberPw
+	 * @param memberName
+	 * @return 
+	 * @throws SQLException 
+	 */
+	public int memberUpdate(String memberId, String memberPw, String memberName) throws SQLException {
+		
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = dao.memberUpdate(conn, memberId, memberPw, memberName);
+		
+		JDBCTemplate.close(conn);
+		
+		return result;
+	}
+
 }
