@@ -37,8 +37,9 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
             }
             
-            // 메인 페이지로 리다이렉트
+            // 로그인 페이지로 리다이렉트
             response.sendRedirect(request.getContextPath() + "/loginPage");
+
             
         } catch (SQLException e) {
             e.printStackTrace();
