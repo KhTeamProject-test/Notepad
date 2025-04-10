@@ -53,7 +53,7 @@ public class MainServlet extends HttpServlet {
             e.printStackTrace();
             
             request.getSession().setAttribute("message", "게시글 목록 조회 중 오류가 발생했습니다.");
-            response.sendRedirect(request.getContextPath());
+            response.sendRedirect(request.getContextPath()  + "/main");
         }
     }
 }

@@ -27,7 +27,8 @@ document.addEventListener("DOMContentLoaded", function() {
     if (logoutBtn) {
         logoutBtn.addEventListener("click", function() {
             if (confirm("로그아웃 하시겠습니까?")) {
-                location.href = "${pageContext.request.contextPath}/logout";
+				const contextPath = logoutBtn.getAttribute("data-context-path");
+                location.href = "/logout";
             }
         });
     }
