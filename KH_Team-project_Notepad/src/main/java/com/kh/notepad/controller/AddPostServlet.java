@@ -40,7 +40,7 @@ public class AddPostServlet extends HttpServlet {
             String content = request.getParameter("content");
             int topic = Integer.parseInt(request.getParameter("topic"));
             int option = Integer.parseInt(request.getParameter("option"));
-            String Id = request.getParameter("${sessionScope.loginMember.memberId}");
+            String Id = request.getParameter("Id");
             
             Post post = new Post();
             post.setPostTitle(title);

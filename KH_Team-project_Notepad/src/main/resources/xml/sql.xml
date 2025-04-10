@@ -60,7 +60,7 @@
     
     <entry key="postAdd">
         INSERT INTO TB_POST
-        VALUES(SEQ_POST_NO.NEXTVAL, ?, ?, ?, ?, ?, DEFAULT, DEFAULT)
+        VALUES(SEQ_POST_NO.NEXTVAL, ?, ?, ?, ?, DEFAULT, ?, DEFAULT)
     </entry>  
         
     <entry key="postDetail">

@@ -33,6 +33,7 @@
         
         <hr>
 
+
         <div class="mainPosts">
             <c:forEach items="${openPostList}" var="openPost">
                 <div class="openPost">
@@ -66,6 +67,7 @@
                 
             <a href="${pageContext.request.contextPath}/addPost/add">메모 작성하기</a>
         </div>
+
         
         <div class="mainPosts">
             <div class="post-list" data-topic="0" style="display:none;">
