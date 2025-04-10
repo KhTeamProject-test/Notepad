@@ -29,11 +29,6 @@ public class MemberUpdateServlet extends HttpServlet{
 			String memberName = req.getParameter("memberName");
 			String memberId = loginMember.getMemberId();
 			
-			System.out.println("memberPw : " + memberPw);
-			System.out.println("memberName : " + memberName);
-			System.out.println("memberId : " + memberId);
-
-			
 			Member member = new Member();
 			member.setMemberId(memberId);
 			member.setMemberPw(memberPw);
@@ -55,6 +50,7 @@ public class MemberUpdateServlet extends HttpServlet{
 			 //   session.setAttribute("loginMember", updatedMember);
 			} else {
 			    session.setAttribute("message", "수정 취소");
+			    resp.sendRedirect("/");
 			}
 			resp.sendRedirect("/");
 
