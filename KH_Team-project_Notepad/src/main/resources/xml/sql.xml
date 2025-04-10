@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
+
     <!-- 회원 관련 쿼리 -->
-    <entry key="memberSignUp">
-        INSERT INTO TB_MEMBER
-        VALUES(SEQ_MEMBER_NO.NEXTVAL, ?, ?, DEFAULT)
-    </entry>
+		<entry key="memberSignUp">
+		    INSERT INTO TB_MEMBER (MEMBER_ID, MEMBER_PW, MEMBER_NAME, JOIN_DATE)
+		    VALUES (?, ?, ?, SYSDATE)
+		</entry>
+
     
     <entry key="memberLogin">
         SELECT MEMBER_ID, MEMBER_NAME
@@ -14,6 +16,14 @@
         AND MEMBER_PW = ?
     </entry>
     
+    <entry key="memberUpdate">
+    	UPDATE TB_MEMBER
+    	SET MEMBER_PW = ?,
+    	MEMBER_NAME = ?
+    	WHERE MEMBER_ID = ?
+    </entry>
+    
+
     <!-- 게시글 관련 쿼리 -->
     <entry key="postListFullView">
         SELECT 
@@ -113,4 +123,6 @@
         WHERE POST_OPTION = 1
         ORDER BY POST_NO DESC
     </entry>
+
 </properties>
+

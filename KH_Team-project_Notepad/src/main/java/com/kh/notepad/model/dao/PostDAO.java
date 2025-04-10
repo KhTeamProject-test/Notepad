@@ -59,7 +59,6 @@ public class PostDAO {
                 post.setPostTitle(rs.getString("POST_TITLE"));
                 post.setPostTopic(rs.getInt("POST_TOPIC"));
                 post.setPostOption(rs.getInt("POST_OPTION"));
-                post.setMemberNo(rs.getInt("MEMBER_NO"));
                 post.setMemberName(rs.getString("MEMBER_NAME"));
                 post.setRegDate(rs.getString("REG_DATE"));
                 
@@ -105,7 +104,6 @@ public class PostDAO {
                 post.setPostTitle(rs.getString("POST_TITLE"));
                 post.setPostTopic(rs.getInt("POST_TOPIC"));
                 post.setPostOption(rs.getInt("POST_OPTION"));
-                post.setMemberNo(rs.getInt("MEMBER_NO"));
                 post.setMemberName(rs.getString("MEMBER_NAME"));
                 post.setRegDate(rs.getString("REG_DATE"));
                 
@@ -172,8 +170,7 @@ public class PostDAO {
             pstmt.setString(2, post.getPostContent());
             pstmt.setInt(3, post.getPostTopic());
             pstmt.setInt(4, post.getPostOption());
-            pstmt.setInt(5, post.getMemberNo());
-            
+
             result = pstmt.executeUpdate();
             
         } finally {
@@ -211,7 +208,6 @@ public class PostDAO {
                 post.setPostContent(rs.getString("POST_CONTENT"));
                 post.setPostTopic(rs.getInt("POST_TOPIC"));
                 post.setPostOption(rs.getInt("POST_OPTION"));
-                post.setMemberNo(rs.getInt("MEMBER_NO"));
                 post.setMemberName(rs.getString("MEMBER_NAME"));
                 post.setRegDate(rs.getString("REG_DATE"));
                 
@@ -302,7 +298,6 @@ public class PostDAO {
             pstmt.setInt(3, post.getPostTopic());
             pstmt.setInt(4, post.getPostOption());
             pstmt.setInt(5, post.getPostNo());
-            pstmt.setInt(6, post.getMemberNo());
             
             result = pstmt.executeUpdate();
             
