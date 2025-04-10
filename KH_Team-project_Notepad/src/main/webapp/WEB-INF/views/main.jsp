@@ -16,27 +16,26 @@
     <c:if test="${empty sessionScope.loginMember}">
 		
 		<div id="mainLoginBtn">
+
 	   	 <a href="${pageContext.request.contextPath}/loginPage">로그인</a>
+
      	</div>
      	<div id="signUpBtn">
      		<a href="${pageContext.request.contextPath}/signupPage">회원가입</a>
      	</div>
      	
-     	<div id="newMemo"><a href="/addPost">새 메모 작성하기</a></div>
-     	
      	<h1>Notepad</h1>
      	
      	<div class="topic-filter">
 	        <button type="button" data-topic="all" class="active">전체</button>
-	        <button type="button" data-topic="0">공지</button>
-	        <button type="button" data-topic="1">공개</button>
+	        <button type="button" data-topic="0">공개</button>
 	    </div>
 	    
 	    <h3>전체 메모 개수: ${fn:length(postList)}개/ 
 	        체크된 메모 개수: ${checkedCount}개</h3>
 	    
 	    <hr>
-	  
+
 	    <div class="mainPosts">
 		    <c:forEach items="${openPostList}" var="openPost">
 		    	<div class="openPost">
@@ -65,6 +64,9 @@
         
         <div class="topic-filter">
 	        <button type="button" data-topic="all" class="active">전체</button>
+	        <button type="button" data-topic="0">공개</button>
+	        <button type="button" data-topic="1">비공개</button>
+	        <button type="button" data-topic="2">Checked</button>
 	        <button type="button" data-topic="0">자유</button>
 	        <button type="button" data-topic="1">질문</button>
 	        <button type="button" data-topic="2">취미</button>
