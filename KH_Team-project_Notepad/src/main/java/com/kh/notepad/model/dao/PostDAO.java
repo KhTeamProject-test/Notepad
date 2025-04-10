@@ -387,4 +387,169 @@ public class PostDAO {
 		
 		return privatePostList;
 	}
+
+	public List<Post> selectCheckedPosts(Connection conn) throws Exception{
+		
+		List<Post> checkedPostList = new ArrayList<>();
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        
+        try {
+            String sql = prop.getProperty("CheckedPostListFullView");
+            
+            pstmt = conn.prepareStatement(sql);
+            
+            rs = pstmt.executeQuery();
+            
+            while(rs.next()) {
+                Post post = new Post();
+                
+                post.setPostNo(rs.getInt("POST_NO"));
+                post.setPostTitle(rs.getString("POST_TITLE"));
+                post.setPostTopic(rs.getInt("POST_TOPIC"));
+                post.setPostOption(rs.getInt("POST_OPTION"));
+                post.setMemberId(rs.getString("MEMBER_NAME"));
+                post.setMemberId(rs.getString("MEMBER_ID"));
+                post.setRegDate(rs.getString("REG_DATE"));
+                
+                // 체크리스트인 경우 체크 상태도 가져옴
+                if(post.getPostOption() == 2) {
+                    post.setPostCheck(rs.getInt("POST_CHECK") == 1);
+                }
+                
+                checkedPostList.add(post);
+            }
+            
+        } finally {
+            JDBCTemplate.close(rs);
+            JDBCTemplate.close(pstmt);
+        }
+		
+		return checkedPostList;
+		
+		
+	}
+
+	public List<Post> selectFirstTopicPosts(Connection conn) throws Exception{
+
+		List<Post> firstTopicPostList = new ArrayList<>();
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        
+        try {
+            String sql = prop.getProperty("FirstTopicPostListFullView");
+            
+            pstmt = conn.prepareStatement(sql);
+            
+            rs = pstmt.executeQuery();
+            
+            while(rs.next()) {
+                Post post = new Post();
+                
+                post.setPostNo(rs.getInt("POST_NO"));
+                post.setPostTitle(rs.getString("POST_TITLE"));
+                post.setPostTopic(rs.getInt("POST_TOPIC"));
+                post.setPostOption(rs.getInt("POST_OPTION"));
+                post.setMemberId(rs.getString("MEMBER_NAME"));
+                post.setMemberId(rs.getString("MEMBER_ID"));
+                post.setRegDate(rs.getString("REG_DATE"));
+                
+                // 체크리스트인 경우 체크 상태도 가져옴
+                if(post.getPostOption() == 2) {
+                    post.setPostCheck(rs.getInt("POST_CHECK") == 1);
+                }
+                
+                firstTopicPostList.add(post);
+            }
+            
+        } finally {
+            JDBCTemplate.close(rs);
+            JDBCTemplate.close(pstmt);
+        }
+		
+		return firstTopicPostList;
+	
+	}
+	
+	public List<Post> selectSecondTopicPosts(Connection conn) throws Exception{
+		
+		List<Post> secondTopicPostList = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = prop.getProperty("SecondTopicPostListFullView");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Post post = new Post();
+				
+				post.setPostNo(rs.getInt("POST_NO"));
+				post.setPostTitle(rs.getString("POST_TITLE"));
+				post.setPostTopic(rs.getInt("POST_TOPIC"));
+				post.setPostOption(rs.getInt("POST_OPTION"));
+				post.setMemberId(rs.getString("MEMBER_NAME"));
+				post.setMemberId(rs.getString("MEMBER_ID"));
+				post.setRegDate(rs.getString("REG_DATE"));
+				
+				// 체크리스트인 경우 체크 상태도 가져옴
+				if(post.getPostOption() == 2) {
+					post.setPostCheck(rs.getInt("POST_CHECK") == 1);
+				}
+				
+				secondTopicPostList.add(post);
+			}
+			
+		} finally {
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return secondTopicPostList;
+		
+	}
+	
+	public List<Post> selectThirdTopicPosts(Connection conn) throws Exception{
+		
+		List<Post> thirdTopicPostList = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = prop.getProperty("ThirdTopicPostListFullView");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Post post = new Post();
+				
+				post.setPostNo(rs.getInt("POST_NO"));
+				post.setPostTitle(rs.getString("POST_TITLE"));
+				post.setPostTopic(rs.getInt("POST_TOPIC"));
+				post.setPostOption(rs.getInt("POST_OPTION"));
+				post.setMemberId(rs.getString("MEMBER_NAME"));
+				post.setMemberId(rs.getString("MEMBER_ID"));
+				post.setRegDate(rs.getString("REG_DATE"));
+				
+				// 체크리스트인 경우 체크 상태도 가져옴
+				if(post.getPostOption() == 2) {
+					post.setPostCheck(rs.getInt("POST_CHECK") == 1);
+				}
+				
+				thirdTopicPostList.add(post);
+			}
+			
+		} finally {
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return thirdTopicPostList;
+		
+	}
 }

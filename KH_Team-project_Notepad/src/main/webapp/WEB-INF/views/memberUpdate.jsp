@@ -13,11 +13,10 @@
 </head>
 <body>
 
-	<h1>${sessionScope.loginMember}</h1>
 	
-	<h4>유저 정보 수정</h4>
+	<h1>유저 정보 수정</h1>
 	
-	<form action="/member/update" method="post">
+	<form action="/member/update" method="get">
 		비밀번호 : <input type="password" id="memberPw" name="memberPw"> <br>
 		비밀번호 확인 : <input type="password" id="memberPwCheck" name="memberPwCheck"> <br>
 		이름 : <input type="text" id="memberName" name="memberName"> <br>

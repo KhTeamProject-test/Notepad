@@ -181,4 +181,45 @@ public class PostService {
         return privatePostList;
 		
 	}
+
+	public List<Post> selectCheckedPostList() throws Exception{
+		
+		Connection conn = JDBCTemplate.getConnection();
+        
+        List<Post> checkedPostList = dao.selectCheckedPosts(conn);
+        
+        JDBCTemplate.close(conn);
+        
+        return checkedPostList;
+	}
+
+	public List<Post> selectFirstTopicPostList() throws Exception{
+		Connection conn = JDBCTemplate.getConnection();
+        
+        List<Post> firstTopicPostList = dao.selectFirstTopicPosts(conn);
+        
+        JDBCTemplate.close(conn);
+        
+        return firstTopicPostList;
+	}
+	
+	public List<Post> selectSecondTopicPostList() throws Exception{
+		Connection conn = JDBCTemplate.getConnection();
+		
+		List<Post> secondTopicPostList = dao.selectSecondTopicPosts(conn);
+		
+		JDBCTemplate.close(conn);
+		
+		return secondTopicPostList;
+	}
+	
+	public List<Post> selectThirdTopicPostList() throws Exception{
+		Connection conn = JDBCTemplate.getConnection();
+		
+		List<Post> thirdTopicPostList = dao.selectThirdTopicPosts(conn);
+		
+		JDBCTemplate.close(conn);
+		
+		return thirdTopicPostList;
+	}
 }
