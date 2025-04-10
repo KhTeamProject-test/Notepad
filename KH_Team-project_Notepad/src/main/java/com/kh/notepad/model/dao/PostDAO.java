@@ -328,7 +328,6 @@ public class PostDAO {
                 post.setPostTitle(rs.getString("POST_TITLE"));
                 post.setPostTopic(rs.getInt("POST_TOPIC"));
                 post.setPostOption(rs.getInt("POST_OPTION"));
-                post.setMemberNo(rs.getInt("MEMBER_NO"));
                 post.setMemberName(rs.getString("MEMBER_NAME"));
                 post.setRegDate(rs.getString("REG_DATE"));
                 
@@ -369,7 +368,6 @@ public class PostDAO {
                 post.setPostTitle(rs.getString("POST_TITLE"));
                 post.setPostTopic(rs.getInt("POST_TOPIC"));
                 post.setPostOption(rs.getInt("POST_OPTION"));
-                post.setMemberNo(rs.getInt("MEMBER_NO"));
                 post.setMemberName(rs.getString("MEMBER_NAME"));
                 post.setRegDate(rs.getString("REG_DATE"));
                 
