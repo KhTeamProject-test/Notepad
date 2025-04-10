@@ -40,6 +40,7 @@
 	    <div class="mainPosts">
 		    <c:forEach items="${openPostList}" var="openPost">
 		    	<div class="openPost">
+
 					${openPost.postNo}
  		    		${openPost.postTitle}
  		    		${openPost.postContent}
@@ -47,7 +48,7 @@
  		    		${openPost.postOption}
  		    		${openPost.memberId}
 		    		${openPost.regDate}
-        
+
 		    	</div>
 		    </c:forEach>  
 	    </div>    
@@ -58,7 +59,7 @@
 	
 	<c:if test="${not empty sessionScope.loginMember}">
 		<p> ${session.loginMember}님을 환영합니다</p><br>
-        <button type="button" id="logout">로그아웃</button>
+        <button type="button" id="logout" >로그아웃</button>
         
         <h1>Notepad</h1>
         
