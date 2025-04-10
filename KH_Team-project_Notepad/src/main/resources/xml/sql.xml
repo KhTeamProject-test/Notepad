@@ -31,6 +31,7 @@
         POST_TITLE, 
         POST_TOPIC,
         POST_OPTION,
+        MEMBER_ID,
         TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE
         FROM TB_POST 
         ORDER BY POST_NO DESC
@@ -42,6 +43,7 @@
         POST_TITLE, 
         POST_TOPIC,
         POST_OPTION,
+        MEMBER_ID,
         TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE
         FROM TB_POST
         WHERE POST_TOPIC = ?
@@ -67,6 +69,7 @@
         POST_TOPIC,
         POST_OPTION,
         POST_CHECK,
+        MEMBER_ID,
         TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE
         FROM TB_POST
         WHERE POST_NO = ?
@@ -82,6 +85,7 @@
     <entry key="postDelete">
         DELETE FROM TB_POST
         WHERE POST_NO = ?
+        AND MEMBER_ID = ?
     </entry>
     
     <entry key="postUpdate">
@@ -91,6 +95,33 @@
             POST_TOPIC = ?,
             POST_OPTION = ?
         WHERE POST_NO = ?
+        AND MEMBER_ID = ?
+    </entry>
+    
+    <entry key="OpenPostListFullView">
+    	SELECT 
+        POST_NO, 
+        POST_TITLE, 
+        POST_TOPIC,
+        POST_OPTION,
+        MEMBER_ID,
+        TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE
+        FROM TB_POST
+        WHERE POST_OPTION = 0
+        ORDER BY POST_NO DESC
+    </entry>
+    
+    <entry key="PrivatePostListFullView">
+    	SELECT 
+        POST_NO, 
+        POST_TITLE, 
+        POST_TOPIC,
+        POST_OPTION,
+        MEMBER_ID,
+        TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE
+        FROM TB_POST
+        WHERE POST_OPTION = 1
+        ORDER BY POST_NO DESC
     </entry>
 
 </properties>

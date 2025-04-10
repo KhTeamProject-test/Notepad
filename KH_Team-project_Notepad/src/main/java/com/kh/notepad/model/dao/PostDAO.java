@@ -307,4 +307,85 @@ public class PostDAO {
         
         return result;
     }
+
+	public List<Post> selectOpenPosts(Connection conn) throws Exception{
+		
+		List<Post> openPostList = new ArrayList<>();
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        
+        try {
+            String sql = prop.getProperty("OpenPostListFullView");
+            
+            pstmt = conn.prepareStatement(sql);
+            
+            rs = pstmt.executeQuery();
+            
+            while(rs.next()) {
+                Post post = new Post();
+                
+                post.setPostNo(rs.getInt("POST_NO"));
+                post.setPostTitle(rs.getString("POST_TITLE"));
+                post.setPostTopic(rs.getInt("POST_TOPIC"));
+                post.setPostOption(rs.getInt("POST_OPTION"));
+                post.setMemberNo(rs.getInt("MEMBER_NO"));
+                post.setMemberName(rs.getString("MEMBER_NAME"));
+                post.setRegDate(rs.getString("REG_DATE"));
+                
+                // 체크리스트인 경우 체크 상태도 가져옴
+                if(post.getPostOption() == 2) {
+                    post.setPostCheck(rs.getInt("POST_CHECK") == 1);
+                }
+                
+                openPostList.add(post);
+            }
+            
+        } finally {
+            JDBCTemplate.close(rs);
+            JDBCTemplate.close(pstmt);
+        }
+        
+        return openPostList;
+		
+	}
+
+	public List<Post> selectprivatePosts(Connection conn) throws Exception {
+		
+		List<Post> privatePostList = new ArrayList<>();
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        
+        try {
+            String sql = prop.getProperty("PrivatePostListFullView");
+            
+            pstmt = conn.prepareStatement(sql);
+            
+            rs = pstmt.executeQuery();
+            
+            while(rs.next()) {
+                Post post = new Post();
+                
+                post.setPostNo(rs.getInt("POST_NO"));
+                post.setPostTitle(rs.getString("POST_TITLE"));
+                post.setPostTopic(rs.getInt("POST_TOPIC"));
+                post.setPostOption(rs.getInt("POST_OPTION"));
+                post.setMemberNo(rs.getInt("MEMBER_NO"));
+                post.setMemberName(rs.getString("MEMBER_NAME"));
+                post.setRegDate(rs.getString("REG_DATE"));
+                
+                // 체크리스트인 경우 체크 상태도 가져옴
+                if(post.getPostOption() == 2) {
+                    post.setPostCheck(rs.getInt("POST_CHECK") == 1);
+                }
+                
+                privatePostList.add(post);
+            }
+            
+        } finally {
+            JDBCTemplate.close(rs);
+            JDBCTemplate.close(pstmt);
+        }
+		
+		return privatePostList;
+	}
 }

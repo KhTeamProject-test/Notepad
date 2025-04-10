@@ -158,4 +158,27 @@ public class PostService {
         
         return result > 0;
     }
+
+	public List<Post> selectOpenPosts() throws Exception{
+		Connection conn = JDBCTemplate.getConnection();
+        
+        List<Post> openPostList = dao.selectOpenPosts(conn);
+        
+        JDBCTemplate.close(conn);
+        
+        return openPostList;
+		
+	}
+
+	public List<Post> selectPrivatePostList() throws Exception{
+		
+		Connection conn = JDBCTemplate.getConnection();
+        
+        List<Post> privatePostList = dao.selectprivatePosts(conn);
+        
+        JDBCTemplate.close(conn);
+        
+        return privatePostList;
+		
+	}
 }
