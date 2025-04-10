@@ -41,6 +41,7 @@ public class AddPostServlet extends HttpServlet {
             int topic = Integer.parseInt(request.getParameter("topic"));
             int option = Integer.parseInt(request.getParameter("option"));
             String Id = loginMember.getMemberId();
+
             
             Post post = new Post();
             post.setPostTitle(title);

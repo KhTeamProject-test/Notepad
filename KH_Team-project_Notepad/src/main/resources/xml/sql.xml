@@ -62,6 +62,7 @@
         INSERT INTO TB_POST (POST_NO, POST_TITLE, POST_CONTENT, POST_TOPIC, POST_OPTION, 
         MEMBER_ID, POST_CHECK, REG_DATE)
 		VALUES (SEQ_POST_NO.NEXTVAL, ?, ?, ?, ?, ?, DEFAULT, DEFAULT)
+
     </entry>  
         
     <entry key="postDetail">
@@ -148,7 +149,7 @@
         MEMBER_ID,
         TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE
         FROM TB_POST
-        WHERE POST_TOPIC = 1
+        WHERE POST_TOPIC = 0
         ORDER BY POST_NO DESC
 	</entry>
 	
@@ -161,7 +162,7 @@
         MEMBER_ID,
         TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE
         FROM TB_POST
-        WHERE POST_TOPIC = 2
+        WHERE POST_TOPIC = 1
         ORDER BY POST_NO DESC
 	</entry>
 	
@@ -174,7 +175,7 @@
         MEMBER_ID,
         TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE
         FROM TB_POST
-        WHERE POST_TOPIC = 3
+        WHERE POST_TOPIC = 2
         ORDER BY POST_NO DESC
 	</entry>
 	
