@@ -5,7 +5,7 @@
     <!-- 회원 관련 쿼리 -->
 		<entry key="memberSignUp">
 		    INSERT INTO TB_MEMBER (MEMBER_ID, MEMBER_PW, MEMBER_NAME, JOIN_DATE)
-		    VALUES (?, ?, ?, ?)
+		    VALUES (?, ?, ?, SYSDATE)
 		</entry>
 
     
@@ -16,7 +16,6 @@
         AND MEMBER_PW = ?
     </entry>
     
-
     <entry key="memberUpdate">
     	UPDATE TB_MEMBER
     	SET MEMBER_PW = ?,
@@ -24,6 +23,7 @@
     	WHERE MEMBER_ID = ?
     </entry>
     
+
     <!-- 게시글 관련 쿼리 -->
     <entry key="postListFullView">
         SELECT 
@@ -94,3 +94,4 @@
     </entry>
 
 </properties>
+

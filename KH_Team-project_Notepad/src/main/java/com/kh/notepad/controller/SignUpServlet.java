@@ -30,7 +30,7 @@ public class SignUpServlet extends HttpServlet {
             String memberId = request.getParameter("userId");
             String memberPw = request.getParameter("userPw");
             String memberName = request.getParameter("userName");
-            
+
             // Member 객체에 파라미터 세팅
             Member member = new Member();
             member.setMemberId(memberId);
@@ -54,8 +54,8 @@ public class SignUpServlet extends HttpServlet {
             
         } catch (SQLException e) {
             e.printStackTrace();
-            
             request.getSession().setAttribute("message", "회원 가입 중 오류가 발생했습니다.");
+
             response.sendRedirect(request.getContextPath());
         }
     }
