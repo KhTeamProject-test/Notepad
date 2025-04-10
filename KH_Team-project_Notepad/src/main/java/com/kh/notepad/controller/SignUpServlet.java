@@ -27,10 +27,10 @@ public class SignUpServlet extends HttpServlet {
         
         try {
             // 파라미터 얻어오기
-            String memberId = request.getParameter("userId");
-            String memberPw = request.getParameter("userPw");
-            String memberName = request.getParameter("userName");
-            
+            String memberId = request.getParameter("memberId");
+            String memberPw = request.getParameter("memberPw");
+            String memberName = request.getParameter("memberName");
+
             // Member 객체에 파라미터 세팅
             Member member = new Member();
             member.setMemberId(memberId);
@@ -45,18 +45,20 @@ public class SignUpServlet extends HttpServlet {
             
             if(result) { // 성공
                 session.setAttribute("message", "회원 가입 성공! 로그인 해주세요.");
+                // 메인 페이지로 리다이렉트
+                response.sendRedirect(request.getContextPath()  + "/main");
             } else { // 실패
                 session.setAttribute("message", "회원 가입 실패. 다시 시도해주세요.");
+                // 메인 페이지로 리다이렉트
+                response.sendRedirect(request.getContextPath()  + "/signup");
             }
             
-            // 메인 페이지로 리다이렉트
-            response.sendRedirect(request.getContextPath());
             
         } catch (SQLException e) {
             e.printStackTrace();
-            
             request.getSession().setAttribute("message", "회원 가입 중 오류가 발생했습니다.");
-            response.sendRedirect(request.getContextPath());
+
+            response.sendRedirect(request.getContextPath()  + "/signup");
         }
     }
 }

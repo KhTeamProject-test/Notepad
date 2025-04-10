@@ -85,7 +85,6 @@ public class MemberDAO {
             if(rs.next()) {
                 member = new Member();
                 
-                member.setMemberNo(rs.getInt("MEMBER_NO"));
                 member.setMemberId(rs.getString("MEMBER_ID"));
                 member.setMemberName(rs.getString("MEMBER_NAME"));
             }
@@ -96,4 +95,25 @@ public class MemberDAO {
         
         return member;
     }
+	public int memberUpdate(Connection conn, String memberId, String memberPw, String memberName) throws SQLException {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = prop.getProperty("memberUpdate");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberPw);
+			pstmt.setString(2, memberName);
+			pstmt.setString(3, memberId);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
 }

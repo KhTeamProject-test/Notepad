@@ -27,6 +27,17 @@ public class MainServlet extends HttpServlet {
             // 전체 게시글 목록 조회
             List<Post> postList = service.selectAllPosts();
             
+            // 공개 게시글 목록 조회
+            List<Post> openPostList = service.selectOpenPosts();
+			
+			request.setAttribute("openPostList", openPostList);
+			
+            
+			// 비공개 게시글 목록 조회
+			List<Post> privatePostList = service.selectPrivatePostList();
+			
+			request.setAttribute("privatePostList", privatePostList);
+			
             // 체크된 게시글 개수 조회
             int checkedCount = service.getCheckedCount();
             
@@ -38,7 +49,7 @@ public class MainServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/main.jsp");
             dispatcher.forward(request, response);
             
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             
             request.getSession().setAttribute("message", "게시글 목록 조회 중 오류가 발생했습니다.");

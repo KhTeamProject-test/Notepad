@@ -46,8 +46,6 @@ public class AddPostServlet extends HttpServlet {
             post.setPostContent(content);
             post.setPostTopic(topic);
             post.setPostOption(option);
-            post.setMemberNo(loginMember.getMemberNo());
-
             PostService service = new PostService();
             boolean result = service.addPost(post);
 
