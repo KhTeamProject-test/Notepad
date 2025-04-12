@@ -50,7 +50,7 @@
     </c:if>
     
     <c:if test="${not empty sessionScope.loginMember}">
-        <p>${session.loginMember}님을 환영합니다</p><br>
+        <p>${sessionScope.loginMember.memberId}님을 환영합니다</p><br>
         <button type="button" id="logout">로그아웃</button>
         <a href="${pageContext.request.contextPath}/member/updatePage">회원 정보 수정</a>
         
