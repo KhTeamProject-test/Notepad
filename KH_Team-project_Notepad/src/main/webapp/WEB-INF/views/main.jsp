@@ -38,20 +38,21 @@
         
         <hr>
 
-
-        <div class="mainPosts">
-            <c:forEach items="${openPostList}" var="openPost">
-                <div class="openPost">
-                    ${openPost.postNo}
-                    ${openPost.postTitle}<br><br>
-                    ${openPost.postContent}<br><br>
-                    ${openPost.postTopic}
-                    ${openPost.postOption}
-                    ${openPost.memberId}<br>
-                    ${openPost.regDate}
-                </div>
-            </c:forEach>  
-        </div>    
+		<div class="mainPosts">
+        	<div class="post-list" data-topic="0" style="display:none;">
+                <c:forEach items="${firstTopicPostList}" var="firstTopicPost">
+                    <div class="firstTopicPost">
+                        ${firstTopicPost.postNo}
+                        ${firstTopicPost.postTitle}<br><br>
+                        ${firstTopicPost.postContent}<br><br>
+                        <!-- ${firstTopicPost.postTopic} -->
+                        <!-- ${firstTopicPost.postOption} -->
+                        ${firstTopicPost.memberId}<br>
+                        ${firstTopicPost.regDate}
+                    </div>
+                </c:forEach>
+            </div>
+         </div>
     </c:if>
     
     <c:if test="${not empty sessionScope.loginMember}">
@@ -85,8 +86,8 @@
                         ${firstTopicPost.postNo}
                         ${firstTopicPost.postTitle}<br><br>
                         ${firstTopicPost.postContent}<br><br>
-                        ${firstTopicPost.postTopic}
-                        ${firstTopicPost.postOption}
+                        <!-- ${firstTopicPost.postTopic} -->
+                        <!-- ${firstTopicPost.postOption} -->
                         ${firstTopicPost.memberId}<br>
                         ${firstTopicPost.regDate}
                     </div>
@@ -96,13 +97,13 @@
             <div class="post-list" data-topic="1" style="display:none;">
                 <c:forEach items="${secondTopicPostList}" var="secondTopicPost">
                     <div class="secondTopicPost">
-                        ${firstTopicPost.postNo}
-                        ${firstTopicPost.postTitle}<br><br>
-                        ${firstTopicPost.postContent}<br><br>
-                        ${firstTopicPost.postTopic}
-                        ${firstTopicPost.postOption}
-                        ${firstTopicPost.memberId}<br>
-                        ${firstTopicPost.regDate}
+                        ${secondTopicPost.postNo}
+                        ${secondTopicPost.postTitle}<br><br>
+                        ${secondTopicPost.postContent}<br><br>
+                        <!-- ${secondTopicPost.postTopic} -->
+                        <!-- ${secondTopicPost.postOption} -->
+                        ${secondTopicPost.memberId}<br>
+                        ${secondTopicPost.regDate}
                     </div>
                 </c:forEach>
             </div>
@@ -110,13 +111,13 @@
             <div class="post-list" data-topic="2" style="display:none;">
                 <c:forEach items="${thirdTopicPostList}" var="thirdTopicPost">
                     <div class="thirdTopicPost">
-                        ${firstTopicPost.postNo}
-                        ${firstTopicPost.postTitle}<br><br>
-                        ${firstTopicPost.postContent}<br><br>
-                        ${firstTopicPost.postTopic}
-                        ${firstTopicPost.postOption}
-                        ${firstTopicPost.memberId}<br>
-                        ${firstTopicPost.regDate}
+                        ${thirdTopicPost.postNo}
+                        ${thirdTopicPost.postTitle}<br><br>
+                        ${thirdTopicPost.postContent}<br><br>
+                        <!-- ${thirdTopicPost.postTopic} -->
+                        <!-- ${thirdTopicPost.postOption} -->
+                        ${thirdTopicPost.memberId}<br>
+                        ${thirdTopicPost.regDate}
                     </div>
                 </c:forEach>
             </div>

@@ -22,10 +22,6 @@
 		</div>
 		
 		<div class="form-group">
-			<label>비밀번호 확인</label> <input type="password" id="memberPwCheck" name="memberPwCheck"> 
-		</div>
-		
-		<div class="form-group">
 			<label>이름</label>  <input type="text" id="memberName" name="memberName">
 		</div>
 		
