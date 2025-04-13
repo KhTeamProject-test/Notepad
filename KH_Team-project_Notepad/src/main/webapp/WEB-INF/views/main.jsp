@@ -38,8 +38,9 @@
             <c:forEach items="${openPostList}" var="openPost">
                 <div class="openPost">
                     ${openPost.postNo}
-                    ${openPost.postTitle}
-                    ${openPost.postContent}
+                    <a href="${pageContext.request.contextPath}/post/detail?postNo=${post.postNo}">
+                        <h3>${post.postTitle}</h3>
+                    </a>
                     ${openPost.postTopic}
                     ${openPost.postOption}
                     ${openPost.memberId}
@@ -74,8 +75,9 @@
                 <c:forEach items="${firstTopicPostList}" var="firstTopicPost">
                     <div class="firstTopicPost">
                         ${firstTopicPost.postNo}
-                        ${firstTopicPost.postTitle}
-                        ${firstTopicPost.postContent}
+                        <a href="${pageContext.request.contextPath}/post/detail?postNo=${post.postNo}">
+                            <h3>${post.postTitle}</h3>
+                        </a>
                         ${firstTopicPost.postTopic}
                         ${firstTopicPost.postOption}
                         ${firstTopicPost.memberId}
@@ -88,8 +90,9 @@
                 <c:forEach items="${secondTopicPostList}" var="secondTopicPost">
                     <div class="secondTopicPost">
                         ${secondTopicPost.postNo}
-                        ${secondTopicPost.postTitle}
-                        ${secondTopicPost.postContent}
+                        <a href="${pageContext.request.contextPath}/post/detail?postNo=${post.postNo}">
+                            <h3>${post.postTitle}</h3>
+                        </a>
                         ${secondTopicPost.postTopic}
                         ${secondTopicPost.postOption}
                         ${secondTopicPost.memberId}
@@ -102,9 +105,10 @@
                 <c:forEach items="${thirdTopicPostList}" var="thirdTopicPost">
                     <div class="thirdTopicPost">
                         ${thirdTopicPost.postNo}
-                        ${thirdTopicPost.postTitle}
-                        ${thirdTopicPost.postContent}
-                        ${thirdTopicPost.postTopic}
+                        <a href="${pageContext.request.contextPath}/post/detail?postNo=${post.postNo}">
+                            <h3>${post.postTitle}</h3>
+                        </a>
+                        ${secondTopicPost.postTopic}
                         ${thirdTopicPost.postOption}
                         ${thirdTopicPost.memberId}
                         ${thirdTopicPost.regDate}
