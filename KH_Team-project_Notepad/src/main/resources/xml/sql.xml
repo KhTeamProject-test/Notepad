@@ -26,17 +26,18 @@
     
 
     <!-- 게시글 관련 쿼리 -->
-    <entry key="postListFullView">
-        SELECT 
-        POST_NO, 
-        POST_TITLE, 
-        POST_TOPIC,
-        POST_OPTION,
-        MEMBER_ID,
+<entry key="postListFullView">
+    SELECT 
+	POST_NO,
+	POST_TITLE,
+	POST_CONTENT,
+	POST_TOPIC,
+	POST_OPTION,
+	MEMBER_ID,
         TO_CHAR(REG_DATE, 'YYYY-MM-DD HH24:MI:SS') REG_DATE
-        FROM TB_POST 
-        ORDER BY POST_NO DESC
-    </entry>
+    FROM TB_POST
+    ORDER BY POST_NO DESC
+</entry>
         
     <entry key="postListByTopic">
         SELECT 
