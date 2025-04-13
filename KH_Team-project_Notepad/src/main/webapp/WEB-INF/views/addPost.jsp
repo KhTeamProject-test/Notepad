@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>게시글 작성</title>
-    <link rel="stylesheet" href="/resources/css/detail.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/addPost.css">
 </head>
 <body>
 
@@ -13,18 +13,18 @@
 	<input type="hidden" name="Id" value="${sessionScope.loginMember.memberId}">
 
     <form action="${pageContext.request.contextPath}/addPost/post" method="post">
-        <div>
-            <label>제목:</label>
+        <div class="form-group">
+            <label>제목</label>
             <input type="text" name="title" required />
         </div>
 
-        <div>
-            <label>내용:</label>
+        <div class="form-group">
+            <label>내용</label>
             <textarea name="content" rows="8" required></textarea>
         </div>
 
-        <div>
-            <label>주제:</label>
+        <div class="form-group">
+            <label>주제</label>
             <select name="topic">
                 <option value="0">자유</option>
                 <option value="1">질문</option>
@@ -33,7 +33,7 @@
         </div>
 
         <div style="display:none;">
-            <label>옵션:</label>
+            <label>옵션</label>
             <select name="option">
                 <option value="0">공개</option>
                 <option value="1">비공개</option>
