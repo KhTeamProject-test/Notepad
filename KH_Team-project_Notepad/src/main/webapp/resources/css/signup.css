@@ -1,0 +1,92 @@
+/* signup.css */
+
+/* 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 80%;
+  background-color: #f9f9f9;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+/* 컨테이너 */
+.container {
+  max-width: 450px;
+  background-color: #fff;
+  padding: 30px 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 제목 */
+h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+/* 폼 정렬 */
+form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+/* 레이블-인풋 세트 */
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 350px;
+}
+.form-group label {
+  width: 80px;
+  font-weight: bold;
+}
+.form-group input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* 제출 버튼 */
+button,
+input[type="submit"] {
+  width: 100px;
+  background-color: #d2b48c;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+button:hover,
+input[type="submit"]:hover {
+  background-color: #bfa07a;
+}
+
+/* a 링크 밑줄 제거 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
