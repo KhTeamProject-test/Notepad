@@ -20,7 +20,7 @@ CREATE TABLE TB_POST (
 	MEMO_OPTION NUMBER DEFAULT 0 NOT NULL      -- 0:공개, 1:비공개, 2:체크메모
 		CHECK (MEMO_OPTION IN (0, 1, 2)),
 	MEMO_CHECK NUMBER DEFAULT 0,               -- 체크 상태
-	TOPIC NUMBER DEFAULT 0 NOT NULL            -- 주제 코드 (0:공지, 1:개인, 2:업무)
+	TOPIC NUMBER DEFAULT 0 NOT NULL            -- 주제 코드 (0:, 1:개인, 2:업무)
 		CHECK (TOPIC IN (0, 1, 2)),
 	CREATED_AT DATE DEFAULT SYSDATE            -- 작성일
 );
@@ -42,7 +42,7 @@ VALUES (2, 'bob', 'hash_pw_456');
 
 -- [2] 게시글 데이터 삽입
 INSERT INTO TB_POST (POST_NO, MEMBER_ID, POST_TITLE, POST_CONTENT, POST_OPTION, POST_CHECK, POST_TOPIC)
-VALUES (991, '098', '첫 메모', '이건 공개 메모입니다.', 1, 0, 0);
+VALUES (991, '11', '첫 메모', '이건 공개 메모입니다.', 1, 0, 0);
 
 INSERT INTO TB_POST (POST_ID, USER_ID, TITLE, CONTENT, MEMO_OPTION, MEMO_CHECK, TOPIC)
 VALUES (102, 1, '비공개 메모', '비밀 메모입니다.', 1, 0, 1);
@@ -58,4 +58,4 @@ SELECT * FROM TB_MEMBER;
 SELECT * FROM TB_POST;
 
 DELETE FROM TB_POST
-WHERE POST_NO ='999';
+WHERE POST_NO ='991';

@@ -144,6 +144,7 @@
 		SELECT 
         POST_NO, 
         POST_TITLE, 
+        POST_CONTENT,
         POST_TOPIC,
         POST_OPTION,
         MEMBER_ID,
@@ -157,6 +158,7 @@
 		SELECT 
         POST_NO, 
         POST_TITLE, 
+        POST_CONTENT,
         POST_TOPIC,
         POST_OPTION,
         MEMBER_ID,
@@ -170,6 +172,7 @@
 		SELECT 
         POST_NO, 
         POST_TITLE, 
+        POST_CONTENT,
         POST_TOPIC,
         POST_OPTION,
         MEMBER_ID,

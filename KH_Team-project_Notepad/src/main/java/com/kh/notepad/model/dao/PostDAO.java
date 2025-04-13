@@ -445,6 +445,7 @@ public class PostDAO {
                 
                 post.setPostNo(rs.getInt("POST_NO"));
                 post.setPostTitle(rs.getString("POST_TITLE"));
+                post.setPostContent(rs.getString("POST_CONTENT"));
                 post.setPostTopic(rs.getInt("POST_TOPIC"));
                 post.setPostOption(rs.getInt("POST_OPTION"));
                 post.setMemberId(rs.getString("MEMBER_ID"));
@@ -485,6 +486,7 @@ public class PostDAO {
 				
 				post.setPostNo(rs.getInt("POST_NO"));
 				post.setPostTitle(rs.getString("POST_TITLE"));
+				post.setPostContent(rs.getString("POST_CONTENT"));
 				post.setPostTopic(rs.getInt("POST_TOPIC"));
 				post.setPostOption(rs.getInt("POST_OPTION"));
 				post.setMemberId(rs.getString("MEMBER_ID"));
@@ -525,6 +527,7 @@ public class PostDAO {
 				
 				post.setPostNo(rs.getInt("POST_NO"));
 				post.setPostTitle(rs.getString("POST_TITLE"));
+				post.setPostContent(rs.getString("POST_CONTENT"));
 				post.setPostTopic(rs.getInt("POST_TOPIC"));
 				post.setPostOption(rs.getInt("POST_OPTION"));
 				post.setMemberId(rs.getString("MEMBER_ID"));
