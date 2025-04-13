@@ -29,7 +29,8 @@
     <entry key="postListFullView">
         SELECT 
         POST_NO, 
-        POST_TITLE, 
+        POST_TITLE,
+        POST_CONTENT,
         POST_TOPIC,
         POST_OPTION,
         MEMBER_ID,
@@ -41,7 +42,8 @@
     <entry key="postListByTopic">
         SELECT 
         POST_NO, 
-        POST_TITLE, 
+        POST_TITLE,
+        POST_CONTENT,
         POST_TOPIC,
         POST_OPTION,
         MEMBER_ID,
@@ -104,7 +106,8 @@
     <entry key="OpenPostListFullView">
     	SELECT 
         POST_NO, 
-        POST_TITLE, 
+        POST_TITLE,
+        POST_CONTENT,
         POST_TOPIC,
         POST_OPTION,
         MEMBER_ID,
@@ -117,7 +120,8 @@
     <entry key="PrivatePostListFullView">
     	SELECT 
         POST_NO, 
-        POST_TITLE, 
+        POST_TITLE,
+        POST_CONTENT,
         POST_TOPIC,
         POST_OPTION,
         MEMBER_ID,
@@ -130,7 +134,8 @@
 	<entry key="CheckedPostListFullView">
 		SELECT 
         POST_NO, 
-        POST_TITLE, 
+        POST_TITLE,
+        POST_CONTENT,
         POST_TOPIC,
         POST_OPTION,
         MEMBER_ID,
@@ -143,7 +148,8 @@
 	<entry key="FirstTopicPostListFullView">
 		SELECT 
         POST_NO, 
-        POST_TITLE, 
+        POST_TITLE,
+        POST_CONTENT,
         POST_TOPIC,
         POST_OPTION,
         MEMBER_ID,
@@ -156,7 +162,8 @@
 	<entry key="SecondTopicPostListFullView">
 		SELECT 
         POST_NO, 
-        POST_TITLE, 
+        POST_TITLE,
+        POST_CONTENT,
         POST_TOPIC,
         POST_OPTION,
         MEMBER_ID,
@@ -169,7 +176,8 @@
 	<entry key="ThirdTopicPostListFullView">
 		SELECT 
         POST_NO, 
-        POST_TITLE, 
+        POST_TITLE,
+        POST_CONTENT,
         POST_TOPIC,
         POST_OPTION,
         MEMBER_ID,
