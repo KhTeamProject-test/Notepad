@@ -22,17 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
     
-    // 로그아웃 버튼
-    const logoutBtn = document.getElementById("logout");
-    if (logoutBtn) {
-        logoutBtn.addEventListener("click", function() {
-            if (confirm("로그아웃 하시겠습니까?")) {
-				const contextPath = logoutBtn.getAttribute("data-context-path");
-                location.href = "/logout";
-            }
-        });
-    }
-    
     // 폼 유효성 검사
     const addForm = document.getElementById("addForm");
     if (addForm) {
@@ -55,7 +44,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-const newMemo = document.querySelector("#newMemo");
-newMemo.addEventListener("click", ()=>{
-    location.href = "/newmemo";
+// 얘때문에 자꾸 오류남 뭐죠 이거?
+//const newMemo = document.querySelector("#newMemo");
+//newMemo.addEventListener("click", ()=>{
+    //location.href = "/newmemo";
+//});
+
+
+// 로그아웃 버튼 이벤트 위임 (DOMContentLoaded 바깥)
+document.addEventListener("click", function(e) {
+    if (e.target && e.target.id === "logout") {
+        if (confirm("로그아웃 하시겠습니까?")) {
+            const contextPath = e.target.getAttribute("data-context-path");
+            location.href = contextPath + "/logout";
+        }
+    }
 });

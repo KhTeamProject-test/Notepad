@@ -9,16 +9,21 @@
     <meta charset="UTF-8">
     <title>Notepad</title>
     
-    <link rel="stylesheet" href="/resources/css/main.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
 </head>
 <body>
     
     <c:if test="${empty sessionScope.loginMember}">
-        <div id="mainLoginBtn">
-            <a href="${pageContext.request.contextPath}/loginPage">로그인</a>
-        </div>
-        <div id="signUpBtn">
-            <a href="${pageContext.request.contextPath}/signupPage">회원가입</a>
+        
+        <div class="user-info">
+        	<div class="action-buttons">
+		        <div id="mainLoginBtn">
+	            	<a href="${pageContext.request.contextPath}/loginPage" class="btn">로그인</a>
+	        	</div>
+	        	<div id="signUpBtn">
+	            	<a href="${pageContext.request.contextPath}/signupPage" class="btn">회원가입</a>
+	        	</div>
+        	</div>
         </div>
         
         <h1>Notepad</h1>
@@ -38,11 +43,11 @@
             <c:forEach items="${openPostList}" var="openPost">
                 <div class="openPost">
                     ${openPost.postNo}
-                    ${openPost.postTitle}
-                    ${openPost.postContent}
+                    ${openPost.postTitle}<br><br>
+                    ${openPost.postContent}<br><br>
                     ${openPost.postTopic}
                     ${openPost.postOption}
-                    ${openPost.memberId}
+                    ${openPost.memberId}<br>
                     ${openPost.regDate}
                 </div>
             </c:forEach>  
@@ -50,9 +55,13 @@
     </c:if>
     
     <c:if test="${not empty sessionScope.loginMember}">
-        <p>${session.loginMember}님을 환영합니다</p><br>
-        <button type="button" id="logout">로그아웃</button>
-        <a href="${pageContext.request.contextPath}/member/updatePage">회원 정보 수정</a>
+    	<div class="user-info">
+	        <p class="welcome">${sessionScope.loginMember.memberId}님을 환영합니다</p><br>
+	        <div class="action-buttons">
+	        	<button type="button" id="logout" data-context-path="${pageContext.request.contextPath}">로그아웃</button>
+	        	<a href="${pageContext.request.contextPath}/member/updatePage" class="btn">회원 정보 수정</a>
+        	</div>
+        </div>
         
         <h1>Notepad</h1>
         
@@ -74,11 +83,11 @@
                 <c:forEach items="${firstTopicPostList}" var="firstTopicPost">
                     <div class="firstTopicPost">
                         ${firstTopicPost.postNo}
-                        ${firstTopicPost.postTitle}
-                        ${firstTopicPost.postContent}
+                        ${firstTopicPost.postTitle}<br><br>
+                        ${firstTopicPost.postContent}<br><br>
                         ${firstTopicPost.postTopic}
                         ${firstTopicPost.postOption}
-                        ${firstTopicPost.memberId}
+                        ${firstTopicPost.memberId}<br>
                         ${firstTopicPost.regDate}
                     </div>
                 </c:forEach>
@@ -87,13 +96,13 @@
             <div class="post-list" data-topic="1" style="display:none;">
                 <c:forEach items="${secondTopicPostList}" var="secondTopicPost">
                     <div class="secondTopicPost">
-                        ${secondTopicPost.postNo}
-                        ${secondTopicPost.postTitle}
-                        ${secondTopicPost.postContent}
-                        ${secondTopicPost.postTopic}
-                        ${secondTopicPost.postOption}
-                        ${secondTopicPost.memberId}
-                        ${secondTopicPost.regDate}
+                        ${firstTopicPost.postNo}
+                        ${firstTopicPost.postTitle}<br><br>
+                        ${firstTopicPost.postContent}<br><br>
+                        ${firstTopicPost.postTopic}
+                        ${firstTopicPost.postOption}
+                        ${firstTopicPost.memberId}<br>
+                        ${firstTopicPost.regDate}
                     </div>
                 </c:forEach>
             </div>
@@ -101,13 +110,13 @@
             <div class="post-list" data-topic="2" style="display:none;">
                 <c:forEach items="${thirdTopicPostList}" var="thirdTopicPost">
                     <div class="thirdTopicPost">
-                        ${thirdTopicPost.postNo}
-                        ${thirdTopicPost.postTitle}
-                        ${thirdTopicPost.postContent}
-                        ${thirdTopicPost.postTopic}
-                        ${thirdTopicPost.postOption}
-                        ${thirdTopicPost.memberId}
-                        ${thirdTopicPost.regDate}
+                        ${firstTopicPost.postNo}
+                        ${firstTopicPost.postTitle}<br><br>
+                        ${firstTopicPost.postContent}<br><br>
+                        ${firstTopicPost.postTopic}
+                        ${firstTopicPost.postOption}
+                        ${firstTopicPost.memberId}<br>
+                        ${firstTopicPost.regDate}
                     </div>
                 </c:forEach>
             </div>
@@ -148,7 +157,7 @@
     });
 </script>
 
-<script src="/resources/js/main.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 
 </body>
 </html>

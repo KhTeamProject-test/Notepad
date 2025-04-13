@@ -1,72 +1,153 @@
+/* 초기화 */
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#newMemo {
-  border: 1px solid black;
-  border-radius: 5px;
-  display: flex;
-  width: 10px;
-  cursor: pointer;
+/* 배경 및 전체 패딩 */
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 40px 0;
 }
 
-#mainLoginBtn {
-  border: 1px solid black;
-border-radius: 5px;
-width: 200px;
-height: 70px;
-font-size: xx-large;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color:blanchedalmond;
-cursor: pointer;
-text-decoration: none;
+/* 중앙 최대 너비 컨테이너 */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-#signUpBtn {
-  border: 1px solid black;
-border-radius: 5px;
-width: 200px;
-height: 70px;
-font-size: xx-large;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color:blanchedalmond;
-cursor: pointer;
-text-decoration: none;
+/* === 상단 유저 정보 === */
+.user-info {
+	width : 80%;
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-.openPost {
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 25%;
-  height: 300px;
+.welcome {
+	display: flex;
+	align-items : center;
+	padding-right: 20px; 
 }
 
-.openMainPosts{
-  display: flex;
-  border: 1px solid black;
+.user-info .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 4px;
 }
 
-.firstTopicPost{
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 25%;
-  height: 300px;
+/* 텍스트 */
+.user-info p {
+    font-weight: bold;
+    font-size: 1rem;
 }
 
-.secondTopicPost{
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 25%;
-  height: 300px;
+/* 버튼 및 링크 스타일 */
+button,
+a.btn {
+    background-color: #d2b48c;  /* 연한 갈색 */
+    color: white;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s;
 }
 
-.thirdTopicPost{
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 25%;
-  height: 300px;
+button:hover,
+a.btn:hover {
+    background-color: #bfa07a;
+}
+
+/* 제목 */
+h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+}
+
+/* 필터 버튼 */
+.topic-filter {
+    text-align: center;
+    margin-bottom: 32px; /* 간격 더 넓힘 */
+}
+
+.topic-filter button {
+    background-color: #eee;
+    color: #333;
+    border: none;
+    padding: 7px 12px;
+    margin: 0 4px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.topic-filter button.active {
+    background-color: #d2b48c;
+    color: #fff;
+}
+
+/* 개수 정보 */
+h3 {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 32px;  /* 필터 버튼과 간격 넓힘 */
+    margin-bottom: 18px;
+}
+
+/* 메모 작성 버튼 */
+a[href*="addPost"] {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 25px;
+    text-align: center;
+    background-color: #d2b48c;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/* 게시물 카드 정렬 */
+.mainPosts {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+}
+
+/* 게시물 카드 */
+.post-list {
+	width: 300px;
+}
+
+.openPost,
+.firstTopicPost,
+.secondTopicPost,
+.thirdTopicPost {
+    background-color: #fff;
+    width: 100%;
+    padding: 16px 20px;
+    border : 0.2px solid gray;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
+    transition: transform 0.2s;
+    margin-bottom: 10px;
+    font-size: 17px
+}
+
+.openPost:hover,
+.firstTopicPost:hover,
+.secondTopicPost:hover,
+.thirdTopicPost:hover {
+    transform: scale(1.01);
 }
