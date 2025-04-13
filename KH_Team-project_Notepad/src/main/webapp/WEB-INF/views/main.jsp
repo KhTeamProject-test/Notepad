@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <title>Notepad</title>
     
-    <link rel="stylesheet" href="/resources/css/main.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
 </head>
 <body>
     
@@ -148,7 +148,7 @@
     });
 </script>
 
-<script src="/resources/js/main.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 
 </body>
 </html>
